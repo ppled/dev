@@ -1,24 +1,14 @@
 // environment vars
 require('dotenv').load()
 
-const Hapi = require('hapi')
-const server = new Hapi.Server()
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 1337
 
-server.connection({
-  host: 'localhost',
-  port: process.env.PORT || 1337
+app.get('/', (req, res) => {
+  res.send('Petersen Parts dev')
 })
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler (request, reply) {
-    return reply('Petersen Parts dev')
-  }
-})
-
-server.start(err => {
-  if (err) throw err
-
-  console.log('Server running at:', server.info.uri)
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`)
 })
