@@ -2,5 +2,9 @@
   "private": true,
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "hapi": "^16.1.1"
   }
 }
