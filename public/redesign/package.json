@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "devDependencies": {
+    "stylus": "^0.54.5"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/stylus src/index.styl -o assets/site.css",
+    "build-w": "yarn build -- -w"
+  }
+}
