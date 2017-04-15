@@ -40,53 +40,57 @@ h5 {
 small {
   font-size: 13px;
 }
-.grid {
+[grid] {
   display: flex;
 }
-.grid .column {
+[grid] [column-width] {
   flex: 1;
 }
-.grid .column-two {
+[grid] [column-width="1"] {
+  width: 8.333333333333332%;
+  max-width: 8.333333333333332%;
+}
+[grid] [column-width="2"] {
   width: 16.666666666666664%;
   max-width: 16.666666666666664%;
 }
-.grid .column-three {
+[grid] [column-width="3"] {
   width: 25%;
   max-width: 25%;
 }
-.grid .column-four {
+[grid] [column-width="4"] {
   width: 33.33333333333333%;
   max-width: 33.33333333333333%;
 }
-.grid .column-five {
+[grid] [column-width="5"] {
   width: 41.66666666666667%;
   max-width: 41.66666666666667%;
 }
-.grid .column-six {
+[grid] [column-width="6"] {
   width: 50%;
   max-width: 50%;
 }
-.grid .column-seven {
+[grid] [column-width="7"] {
   width: 58.333333333333336%;
   max-width: 58.333333333333336%;
 }
-.grid .column-eight {
+[grid] [column-width="8"] {
   width: 66.66666666666666%;
   max-width: 66.66666666666666%;
 }
-.grid .column-nine {
+[grid] [column-width="9"] {
   width: 75%;
   max-width: 75%;
 }
-.grid .column-ten {
+[grid] [column-width="10"] {
   width: 83.33333333333334%;
   max-width: 83.33333333333334%;
 }
-.grid .column-eleven {
+[grid] [column-width="11"] {
   width: 91.66666666666666%;
   max-width: 91.66666666666666%;
 }
-.grid .column-twelve {
+[grid] [column-width="12"] {
   width: 100%;
   max-width: 100%;
 }
