@@ -1,11 +1,13 @@
 const autoprefixer = require('gulp-autoprefixer')
 const cssnano = require('gulp-cssnano')
 const gulp = require('gulp')
+const plumber = require('gulp-plumber')
 const sourcemaps = require('gulp-sourcemaps')
 const stylus = require('gulp-stylus')
 
 function buildCSS () {
   return gulp.src('src/*.styl')
+    .pipe(plumber())
     .pipe(sourcemaps.init())
       .pipe(stylus())
       .pipe(autoprefixer())
