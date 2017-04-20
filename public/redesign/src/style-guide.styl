@@ -1,1 +1,63 @@
 @import './core/index.styl'
+@import './utils/vars.styl'
+@import './utils/mixins.styl'
+
+.style-guide {
+
+  .guide-header {
+    background-color: colors.secondary_light
+    padding: 25px 0
+
+    .header-logo {
+      width = 379px
+      height = 50px
+      display: block
+      background-repeat: no-repeat
+      width: width
+      height: height
+
+      +non-retina() {
+        background-image: url('./guide-logo.png')
+      }
+
+      +retina() {
+        background-image: url('./guide-logo@2x.png')
+        background-size: contain
+      }
+
+      // +30 for `.constrain` padding
+      @media (max-width: unquote('' + (width + 30))) {
+        background-size: 100%
+        width: 100%
+        max-width: width
+        height: 0
+        padding-bottom: (100% * (height / width))
+      }
+    }
+  }
+
+  main {
+    padding-top: 60px
+  }
+
+  .guide-section-heading {
+    margin-bottom: 15px
+    color: colors.neutral_60
+  }
+
+  .guide-headings {
+    hide-below = 600px
+
+    @media (max-width: unquote('' + (hide-below - 1))) {
+      display: none
+    }
+
+    @media (min-width: unquote('' + hide-below)) {
+
+      .headings > * {
+        display: block
+        margin-bottom: 15px
+      }
+    }
+  }
+}

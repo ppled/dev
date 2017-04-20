@@ -1,0 +1,15 @@
+non-retina() {
+  @media only screen {
+    @media (max-device-pixel-ratio: 1.99), (max-resolution: 191dpi), (max-resolution: 1.99dppx) {
+      {block}
+    }
+  }
+}
+
+retina() {
+  @media only screen {
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      {block}
+    }
+  }
+}
