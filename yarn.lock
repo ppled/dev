@@ -13,6 +13,10 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
 
+basic-auth@^1.0.4:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/basic-auth/-/basic-auth-1.1.0.tgz#45221ee429f7ee1e5035be3f51533f1cdfd29884"
+
 content-disposition@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.2.tgz#0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4"
@@ -68,6 +72,12 @@ escape-html@~1.0.3:
 etag@~1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.0.tgz#6f631aef336d6c46362b51764044ce216be3c051"
+
+express-basic-auth@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/express-basic-auth/-/express-basic-auth-1.0.1.tgz#72b97850f1eed625aecf668e2bc58edccaf08a52"
+  dependencies:
+    basic-auth "^1.0.4"
 
 express@^4.15.2:
   version "4.15.2"
