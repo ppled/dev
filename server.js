@@ -35,7 +35,12 @@ if (process.env.NODE_ENV === 'production') {
   }))
 }
 
-app.use(stylus.middleware(PUBLIC_PATH))
+app.use(stylus.middleware({
+  src: PUBLIC_PATH,
+  sourcemap: true,
+  compress: true
+}))
+
 app.use(static(PUBLIC_PATH))
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`)
