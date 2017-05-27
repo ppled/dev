@@ -7,4 +7,7 @@
 ```bash
 # start dev server
 yarn start
+
+# watch server files
+yarn start-w
 ```
