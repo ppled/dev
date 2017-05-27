@@ -2,11 +2,13 @@ require('dotenv').load()
 
 const auth = require('express-basic-auth')
 const express = require('express')
-const { static } = express
+const stylus = require('stylus')
 const { join } = require('path')
+const { static } = express
 
 const app = express()
-const port = process.env.PORT || 1337
+const PORT = process.env.PORT || 1337
+const PUBLIC_PATH = join(__dirname, 'public')
 
 function getUsers () {
   // users in `USER::PASS;` format
@@ -33,7 +35,8 @@ if (process.env.NODE_ENV === 'production') {
   }))
 }
 
-app.use(static(join(__dirname, 'public')))
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
+app.use(stylus.middleware(PUBLIC_PATH))
+app.use(static(PUBLIC_PATH))
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`)
 })
