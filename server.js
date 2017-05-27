@@ -1,4 +1,3 @@
-// environment vars
 require('dotenv').load()
 
 const auth = require('express-basic-auth')
@@ -11,11 +10,11 @@ const port = process.env.PORT || 1337
 
 function getUsers () {
   // users in `USER::PASS;` format
-  const USERS = process.env.USERS || ''
+  const users = process.env.AUTH_USERS || ''
   const result = {}
 
-  USERS.split(';')
-    // remove falsy
+  users.split(';')
+    // filter out falsy
     .filter(item => item)
     .forEach(pair => {
       const [user, pass] = pair.split('::')
@@ -29,7 +28,7 @@ function getUsers () {
 if (process.env.NODE_ENV === 'production') {
   app.use(auth({
     challenge: true,
-    realm: 'ppled-dev-1337',
+    realm: process.env.AUTH_REALM,
     users: getUsers()
   }))
 }
