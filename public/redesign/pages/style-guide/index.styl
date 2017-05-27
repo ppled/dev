@@ -1,6 +1,6 @@
-@import './core/index.styl'
-@import './utils/vars.styl'
-@import './utils/mixins.styl'
+@import '../../lib/core/index.styl'
+@import '../../lib/utils/vars.styl'
+@import '../../lib/utils/mixins.styl'
 
 .style-guide {
 
@@ -17,11 +17,11 @@
       height: height
 
       +non-retina() {
-        background-image: url('./guide-logo.png')
+        background-image: url('../../assets/guide-logo.png')
       }
 
       +retina() {
-        background-image: url('./guide-logo@2x.png')
+        background-image: url('../../assets/guide-logo@2x.png')
         background-size: contain
       }
 
