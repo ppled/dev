@@ -3,7 +3,7 @@ require('dotenv').load()
 const auth = require('express-basic-auth')
 const express = require('express')
 const stylus = require('stylus')
-const { join } = require('path')
+const { extname, join } = require('path')
 const { static } = express
 
 const app = express()
@@ -39,6 +39,14 @@ app.use(stylus.middleware({
   src: PUBLIC_PATH,
   sourcemap: true
 }))
+
+app.use((request, response, next) => {
+  if (extname(request.path) === '.styl') {
+    response.set('Content-Type', 'text/css')
+  }
+
+  next()
+})
 
 app.use(static(PUBLIC_PATH))
 app.listen(PORT, () => {
