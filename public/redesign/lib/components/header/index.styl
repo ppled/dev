@@ -1,0 +1,39 @@
+@require '../../core/index.styl'
+@require '../../utils/vars.styl'
+@require '../list/index.styl'
+
+.site-header {
+  width: 100%
+  position: fixed
+  top: 0
+  left: 0
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5)
+
+  > .constrain {
+    display: flex
+    justify-content: space-between
+    padding-top: 18px
+    padding-bottom: 17px
+  }
+
+  .header-logo {
+    display: block
+    background-image: url(ASSET_PATH + '/header-logo.png')
+    background-size: 227px 30px
+    width: 227px
+    height: 30px
+  }
+
+  .header-main {
+    display: flex
+
+    .header-logo {
+      margin-right: 40px
+    }
+  }
+
+  .header-nav_main,
+  .header-nav_utility {
+    margin-top: 5px
+  }
+}
