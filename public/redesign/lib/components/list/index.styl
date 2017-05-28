@@ -1,0 +1,76 @@
+@require '../../core/index.styl'
+@require '../../utils/vars.styl'
+
+.list_menu {
+  display: flex
+  list-style-type: none
+
+  > .list-item {
+    font-size: 10px
+    text-transform: uppercase
+
+    > a {
+      display: block
+      padding: 5px 5px
+      position: relative
+
+      // underline
+      &:after {
+        content: ''
+        display: none
+        background-color: colors.neutral_80
+        height: 1px
+        position: absolute
+        bottom: 0
+        left: 5px
+        right: 5px
+      }
+
+      &:hover {
+        text-decoration: none
+      }
+    }
+
+    &:hover,
+    &.list-item--active {
+
+      > a:after {
+        display: block
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 15px
+    }
+
+    &:first-child {
+
+      > a {
+        padding-left: 0
+
+        &:after {
+          left: 0
+        }
+      }
+    }
+
+    &:last-child {
+
+      > a {
+        padding-right: 0
+
+        &:after {
+          right: 0
+        }
+      }
+    }
+  }
+}
+
+.list_menu_bold {
+  @extend .list_menu
+
+  > .list-item {
+    font-weight: 700
+  }
+}
