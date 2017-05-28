@@ -12,18 +12,11 @@
       width = 379px
       height = 50px
       display: block
+      background-image: url(ASSET_PATH + '/guide-logo.png')
       background-repeat: no-repeat
+      background-size: contain
       width: width
       height: height
-
-      +non-retina() {
-        background-image: url(ASSET_PATH + '/guide-logo.png')
-      }
-
-      +retina() {
-        background-image: url(ASSET_PATH + '/guide-logo@2x.png')
-        background-size: contain
-      }
 
       // +30 for `.constrain` padding
       @media (max-width: unquote('' + (width + 30))) {
