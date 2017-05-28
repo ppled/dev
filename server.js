@@ -37,8 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(stylus.middleware({
   src: PUBLIC_PATH,
-  sourcemap: true,
-  compress: true
+  sourcemap: true
 }))
 
 app.use(static(PUBLIC_PATH))
