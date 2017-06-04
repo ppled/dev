@@ -1,13 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "start-w": "nodemon server.js"
+    "start": "node lib/server.js",
+    "start-w": "nodemon lib/server.js"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-basic-auth": "^1.0.1",
+    "md5": "^2.2.1",
+    "pify": "^3.0.0",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
