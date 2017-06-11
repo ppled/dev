@@ -1,0 +1,43 @@
+@require '../../core/index.styl'
+@require '../../utils/vars.styl'
+@require '../../utils/mixins.styl'
+
+[class*="btn_"] {
+  background-color: transparent
+  padding: 10px 15px
+  border: 0
+  font-size: 14px
+  text-transform: uppercase
+  cursor: pointer
+  opacity: 1
+  transition: opacity speeds.default
+
+  &:hover {
+    opacity: .8
+  }
+
+  &:focus {
+    opacity: 1
+  }
+}
+
+.btn_large {
+  min-width: 100px
+  padding: 15px 25px
+}
+
+.btn_border {
+  border: 1px solid colors.neutral
+}
+
+.btn_dark {
+  @extend $light-text
+  background-color: colors.neutral
+  border: 1px solid colors.neutral
+  color: white
+}
+
+.btn_light {
+  background-color: colors.primary
+  border: 1px solid colors.neutral
+}
