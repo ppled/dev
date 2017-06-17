@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "node lib/server.js",
-    "start-w": "nodemon lib/server.js"
+    "start": "NODE_ENV=development node lib/server.js",
+    "start-w": "NODE_ENV=development nodemon lib/server.js"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
