@@ -5,13 +5,8 @@
 .item_product {
   font-size: 16px
 
-  .item-title,
-  .item-img,
-  .item-btn {
-    display: block
-  }
-
   .item-title {
+    display: block
     max-width: 100%
     margin-bottom: 15px
     font-weight: 700
@@ -21,10 +16,40 @@
   }
 
   .item-img {
+    display: block
     margin-bottom: 15px
   }
 
+  .item-price-qty {
+    display: flex
+    justify-content: space-between
+    align-items: center
+  }
+
+  .item-price {
+    font-weight: 700
+  }
+
+  .item-qty {
+
+    > label {
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100px
+
+      .qty-input {
+        width: 60px
+        padding: 10px 5px
+        border: 0
+        border-bottom: 1px solid colors.neutral
+        text-align: center
+      }
+    }
+  }
+
   .item-btn {
+    display: block
     margin-top: 15px
   }
 }
