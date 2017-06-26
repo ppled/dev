@@ -4,8 +4,8 @@
     "node": ">=7.10.0"
   },
   "scripts": {
-    "start": "node lib/server.js",
-    "start-w": "nodemon lib/server.js"
+    "start": "node server/index.js",
+    "start-w": "nodemon server/index.js"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
