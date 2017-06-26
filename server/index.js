@@ -1,37 +1,23 @@
 require('dotenv').load()
 
-const auth = require('express-basic-auth')
 const express = require('express')
 const stylusMW = require('./stylus-middleware.js')
 const { extname, join } = require('path')
-const { static } = express
 
-const app = express()
 const PORT = process.env.PORT || 1337
 const PUBLIC_PATH = join(__dirname, '../public')
-
-function getUsers () {
-  // users in `USER::PASS;` format
-  const users = process.env.AUTH_USERS || ''
-  const result = {}
-
-  users.split(';')
-    // filter out falsy
-    .filter(item => item)
-    .forEach(pair => {
-      const [user, pass] = pair.split('::')
-      result[user] = pass
-    })
-
-  return result
-}
+const app = express()
+const { static } = express
 
 // authentication
 if (process.env.NODE_ENV === 'production') {
+  const auth = require('express-basic-auth')
+  const { getAuthUsers } = require('./utils.js')
+
   app.use(auth({
     challenge: true,
     realm: process.env.AUTH_REALM,
-    users: getUsers()
+    users: getAuthUsers()
   }))
 }
 

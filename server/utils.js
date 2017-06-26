@@ -4,6 +4,22 @@ function isFunction (thing) {
   return typeof thing === 'function'
 }
 
+function getAuthUsers () {
+  // users in `USER::PASS;` format
+  const users = process.env.AUTH_USERS || ''
+  const result = {}
+
+  users.split(';')
+    // filter out falsy
+    .filter(item => item)
+    .forEach(pair => {
+      const [user, pass] = pair.split('::')
+      result[user] = pass
+    })
+
+  return result
+}
+
 function promiseCallback (resolve, reject) {
   return function (error, result) {
     if (error) {
@@ -43,6 +59,7 @@ function pifyCtx (thing, context) {
 }
 
 module.exports = {
+  getAuthUsers,
   isFunction,
   pifyCtx
 }
