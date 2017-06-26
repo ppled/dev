@@ -44,18 +44,16 @@ function fileChanged (file) {
   return isChanged
 }
 
-function updateFileHashes (files) {
-  files.forEach(file => {
-    const { contents, path } = file
-    const cacheObj = cache[path] = (cache[path] || {})
+function updateFileHash (file) {
+  const { contents, path } = file
+  const cacheObj = cache[path] = (cache[path] || {})
 
-    if (cacheObj.body) {
-      // cached body is no longer valid
-      delete cacheObj.body
-    }
+  if (cacheObj.body) {
+    // cached body is no longer valid
+    delete cacheObj.body
+  }
 
-    cacheObj.hash = md5(contents)
-  })
+  cacheObj.hash = md5(contents)
 }
 
 async function getContents (path) {
@@ -77,7 +75,7 @@ async function getContents (path) {
       rendered = error.message
     }
 
-    updateFileHashes(changedFiles)
+    changedFiles.forEach(updateFileHash)
     cache[path].body = rendered
     result = rendered
   } else {
