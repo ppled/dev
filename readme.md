@@ -1,5 +1,9 @@
 # Petersen Parts dev server
 
+## .env
+
+To set environment vars in local development, copy/rename `dotenv` to `.env` and set vars accordingly
+
 ## Commands
 
 #### start
