@@ -1,2 +1,3 @@
+NODE_ENV=development
 AUTH_USERS=username::password
 AUTH_REALM=some-realm
