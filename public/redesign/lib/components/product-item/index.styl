@@ -7,12 +7,12 @@
 
   .item-title {
     display: block
-    max-width: 100%
-    margin-bottom: 15px
     font-weight: 700
+    margin-bottom: 15px
+    max-width: 100%
     overflow: hidden
-    white-space: nowrap
     text-overflow: ellipsis
+    white-space: nowrap
   }
 
   .item-img {
@@ -21,9 +21,9 @@
   }
 
   .item-price-qty {
+    align-items: center
     display: flex
     justify-content: space-between
-    align-items: center
   }
 
   .item-price {
@@ -33,17 +33,17 @@
   .item-qty {
 
     > label {
+      align-items: center
       display: flex
       justify-content: space-between
-      align-items: center
       width: 100px
 
       .qty-input {
-        width: 60px
-        padding: 10px 5px
-        border: 0
         border-bottom: 1px solid colors.neutral
+        border: 0
+        padding: 10px 5px
         text-align: center
+        width: 60px
       }
     }
   }

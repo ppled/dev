@@ -16,13 +16,13 @@
 
       // underline
       &:after {
+        background-color: colors.neutral_80
+        bottom: 0
         content: ''
         display: none
-        background-color: colors.neutral_80
         height: 1px
-        position: absolute
-        bottom: 0
         left: 5px
+        position: absolute
         right: 5px
       }
 
@@ -35,16 +35,16 @@
       position: relative
 
       &::after {
-        content: attr(data-badge)
         background-color: colors.yellow
-        padding: 2px 4px
-        font-weight: 700
-        font-size: 8px
-        position: absolute
-        top: 0
-        right: 0
-        pointer-events: none
         border-radius: 6px
+        content: attr(data-badge)
+        font-size: 8px
+        font-weight: 700
+        padding: 2px 4px
+        pointer-events: none
+        position: absolute
+        right: 0
+        top: 0
         transform: translate(50%, -40%)
       }
     }

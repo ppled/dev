@@ -3,30 +3,30 @@
 @require '../../components/list/index.styl'
 
 logo = {
-  width: 227px
   height: 30px
+  width: 227px
 }
 
 .site-header {
-  width: 100%
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5)
+  left: 0
   position: fixed
   top: 0
-  left: 0
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5)
+  width: 100%
 
   > .constrain {
     display: flex
     justify-content: space-between
-    padding-top: 18px
     padding-bottom: 17px
+    padding-top: 18px
   }
 
   .header-logo {
-    display: block
     background-image: url(ASSET_PATH + '/header-logo.png')
     background-size: logo.width logo.height
-    width: logo.width
+    display: block
     height: logo.height
+    width: logo.width
   }
 
   .header-main {
