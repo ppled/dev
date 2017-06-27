@@ -61,6 +61,8 @@ async function getContents (path) {
   const contents = await fs.readFile(path, 'utf-8')
   const affectedFiles = await getAffectedFiles(contents, path)
   const changedFiles = affectedFiles.filter(fileChanged)
+  // TODO: deps cache should be tied to parent path cache
+  // { path: { hash: '', body: '', deps: { } } }
   const shouldRender = changedFiles.length > 0 || !cacheObj.body
 
   if (shouldRender) {
