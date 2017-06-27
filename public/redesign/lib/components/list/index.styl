@@ -31,6 +31,24 @@
       }
     }
 
+    &[data-badge] {
+      position: relative
+
+      &::after {
+        content: attr(data-badge)
+        background-color: colors.yellow
+        padding: 2px 4px
+        font-weight: 700
+        font-size: 8px
+        position: absolute
+        top: 0
+        right: 0
+        pointer-events: none
+        border-radius: 6px
+        transform: translate(50%, -40%)
+      }
+    }
+
     &:hover,
     &.list-item--active {
 
