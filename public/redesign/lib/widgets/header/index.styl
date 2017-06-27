@@ -1,10 +1,24 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
+@require '../../core/mixins.styl'
 @require '../../components/list/index.styl'
 
+device-breakpoint = 820px
 logo = {
   height: 30px
   width: 227px
+}
+
+wide() {
+  +media('>=' + device-breakpoint) {
+    {block}
+  }
+}
+
+condensed() {
+  +media('<' + device-breakpoint) {
+    {block}
+  }
 }
 
 .site-header {
@@ -14,12 +28,35 @@ logo = {
   top: 0
   width: 100%
 
-  > .constrain {
-    display: flex
-    justify-content: space-between
-    padding-bottom: 17px
-    padding-top: 18px
+  +condensed() {
+    padding-bottom: 10px
+    padding-top: @padding-bottom
+
+    .header_wide {
+      display: none
+    }
   }
+
+  +wide() {
+    padding-bottom: 20px
+    padding-top: @padding-bottom
+
+    .header_condensed {
+      display: none
+    }
+  }
+
+  .header_wide,
+  .header_condensed {
+
+    > .constrain {
+      display: flex
+      justify-content: space-between
+    }
+  }
+}
+
+.header_wide {
 
   .header-logo {
     background-image: url(ASSET_PATH + '/header-logo.png')
