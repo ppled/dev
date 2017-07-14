@@ -1,0 +1,50 @@
+@require '../../core/vars.styl'
+
+.nav-toggle {
+  background-color: transparent
+  border: 0
+  cursor: pointer
+  display: block
+  height: 24px
+  padding: 0
+  position: relative
+  width: @height
+
+  // define in relative units
+  size = 12
+  vert-offset = 3
+  horiz-offset = 1.5
+  bar-height = ((size - (vert-offset * 2)) / 6)
+  bar-width = (size - (horiz-offset * 2))
+
+  [class^="bar_"] {
+    background-color: colors.neutral
+    display: block
+    height: percentage(bar-height / size)
+    left: percentage(horiz-offset / size)
+    position: absolute
+    top: percentage(vert-offset / size)
+    transform-origin: center
+    transition-duration: speeds.default
+    transition-property: transform
+    width: percentage(bar-width / size)
+
+    rotation = rotate(0deg)
+    &.bar_top { transform: translate(0, 0) rotation }
+    &.bar_middle { transform: translate(0, 250%) rotation }
+    &.bar_bottom { transform: translate(0, 500%) rotation }
+  }
+
+  &[opened] [class^="bar_"] {
+    translation = translate(0, 250%)
+
+    &.bar_top,
+    &.bar_bottom {
+      transform: translation rotate(-45deg)
+    }
+
+    &.bar_middle {
+      transform: translation rotate(45deg)
+    }
+  }
+}
