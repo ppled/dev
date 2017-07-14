@@ -6,6 +6,8 @@
     <title>Header component</title>
 
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="./index.styl" />
   </head>
   <body>
@@ -32,13 +34,30 @@
         </div>
       </div>
 
-      <div class="header_condensed">
+      <div class="header_condensed" opened>
         <div class="constrain">
-          <!--  -->
+          <button class="nav-toggle header-nav-toggle">
+            <i class="bar_top"></i>
+            <i class="bar_middle"></i>
+            <i class="bar_bottom"></i>
+          </button>
+
+          <a class="header-link header-logo" href="#"></a>
+
+          <a class="header-link header-cart" href="#" badge="5">
+            <i class="material-icons">shopping_cart</i>
+          </a>
         </div>
 
         <div class="header-flyout">
-          <!--  -->
+          <ul class="header-nav_main list">
+            <li class="list-item list-item--active"><a href="#">Products</a></li>
+            <li class="list-item"><a href="#">Blog</a></li>
+            <li class="list-item"><a href="#">About</a></li>
+            <li class="list-item"><a href="#">Installation</a></li>
+            <li class="list-item"><a href="#">Contact</a></li>
+            <li class="list-item"><a href="#">Log in</a></li>
+          </ul>
         </div>
       </div>
     </header>

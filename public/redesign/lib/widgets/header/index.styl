@@ -2,12 +2,9 @@
 @require '../../core/vars.styl'
 @require '../../core/mixins.styl'
 @require '../../components/list/index.styl'
+@require '../../components/nav-toggle/index.styl'
 
 device-breakpoint = 820px
-logo = {
-  height: 30px
-  width: 227px
-}
 
 wide() {
   +media('>=' + device-breakpoint) {
@@ -24,6 +21,7 @@ condensed() {
 .site-header {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5)
   left: 0
+  min-width: 300px
   position: fixed
   top: 0
   width: 100%
@@ -57,6 +55,10 @@ condensed() {
 }
 
 .header_wide {
+  logo = {
+    height: 30px
+    width: 227px
+  }
 
   .header-logo {
     background-image: url(ASSET_PATH + '/header-logo.png')
@@ -78,5 +80,36 @@ condensed() {
   .header-nav_utility {
     align-items: center
     height: logo.height
+  }
+}
+
+.header_condensed {
+
+  .header-link {
+    display: block
+    font-size: 0
+  }
+
+  .header-logo {
+    background-image: url(ASSET_PATH + '/header-logo.png')
+    height: 24px
+    width: 170px
+    background-size: @width @height
+  }
+
+  .header-cart .material-icons {
+    font-size: 24px
+  }
+
+  &:not([opened]) .header-flyout {
+    display: none
+  }
+
+  .header-flyout {
+    background-color: colors.neutral
+    left: 0
+    position: absolute
+    top: 100%
+    width: 100%
   }
 }
