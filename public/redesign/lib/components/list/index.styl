@@ -1,7 +1,13 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
 
-.list_menu {
+.list {
+  > .list-item[bold] {
+    font-weight: 700
+  }
+}
+
+.list[menu] {
   display: flex
   list-style-type: none
 
@@ -50,8 +56,7 @@
     }
 
     &:hover,
-    &.list-item--active {
-
+    &.list-item[active] {
       > a:after {
         display: block
       }
@@ -62,7 +67,6 @@
     }
 
     &:first-child {
-
       > a {
         padding-left: 0
 
@@ -73,7 +77,6 @@
     }
 
     &:last-child {
-
       > a {
         padding-right: 0
 
@@ -85,9 +88,37 @@
   }
 }
 
-.list_menu_bold {
-  @extend .list_menu
+.list[menu-blocks] {
+  list-style-type: none
 
+  > .list-item {
+    font-size: 10px
+    text-transform: uppercase
+
+    &:not(:last-child) {
+      border-bottom: 1px solid colors.neutral
+    }
+
+    > a {
+      display: block
+      padding: 15px
+      text-decoration: none
+    }
+  }
+}
+
+.list[menu-blocks][dark] {
+
+  > .list-item {
+    color: white
+
+    &:not(:last-child) {
+      border-bottom-color: rgba(255, 255, 255, .25)
+    }
+  }
+}
+
+.list[menu][bold] {
   > .list-item {
     font-weight: 700
   }
