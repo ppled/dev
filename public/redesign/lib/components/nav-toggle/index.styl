@@ -1,6 +1,6 @@
 @require '../../core/vars.styl'
 
-.nav-toggle {
+$nav-toggle {
   background-color: transparent
   border: 0
   cursor: pointer
@@ -34,8 +34,10 @@
     &.bar_middle { transform: translate(0, 250%) rotation }
     &.bar_bottom { transform: translate(0, 500%) rotation }
   }
+}
 
-  &[opened] [class^="bar_"] {
+$nav-toggle_opened {
+  [class^="bar_"] {
     translation = translate(0, 250%)
 
     &.bar_top,
