@@ -28,12 +28,20 @@ condensed-device() {
 
   +condensed-device() {
 
-    &:not([opened]) .header-flyout {
-      transform: translateX(0)
+    .nav-toggle {
+      @extend $nav-toggle
     }
 
-    &[opened] .header-flyout {
-      transform: translateX(100%)
+    // header opened
+    &[opened] {
+
+      .nav-toggle {
+        @extend $nav-toggle_opened
+      }
+
+      .header-flyout {
+        transform: translateX(100%)
+      }
     }
   }
 
@@ -136,6 +144,8 @@ condensed-device() {
     position: fixed
     right: 100%
     top: condensed-height
+    transform: translateX(0)
+    transition: transform speeds.default
     width: 100%
   }
 }
