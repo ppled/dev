@@ -6,110 +6,136 @@
 
 device-breakpoint = 820px
 
-wide() {
+wide-device() {
   +media('>=' + device-breakpoint) {
     {block}
   }
 }
 
-condensed() {
+condensed-device() {
   +media('<' + device-breakpoint) {
     {block}
   }
 }
 
 .site-header {
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5)
-  left: 0
-  min-width: 300px
-  position: fixed
-  top: 0
-  width: 100%
 
-  +condensed() {
-    padding-bottom: 10px
-    padding-top: @padding-bottom
-
-    .header_wide {
+  +wide-device() {
+    .header-flyout {
       display: none
     }
   }
 
-  +wide() {
-    padding-bottom: 20px
-    padding-top: @padding-bottom
+  +condensed-device() {
 
-    .header_condensed {
-      display: none
+    &:not([opened]) .header-flyout {
+      transform: translateX(0)
+    }
+
+    &[opened] .header-flyout {
+      transform: translateX(100%)
     }
   }
 
-  .header_wide,
-  .header_condensed {
+  /* both wide and condensed header */
+  .header-body {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5)
+    left: 0
+    min-width: 300px
+    position: fixed
+    top: 0
+    width: 100%
+
+    +wide-device() {
+      padding-bottom: 20px
+      padding-top: @padding-bottom
+
+      // condensed header on wide devices
+      &[condensed] {
+        display: none
+      }
+    }
+
+    +condensed-device() {
+      padding-bottom: 10px
+      padding-top: @padding-bottom
+
+      // wide header on condensed devices
+      &[wide] {
+        display: none
+      }
+    }
 
     > .constrain {
       display: flex
       justify-content: space-between
     }
   }
-}
 
-.header_wide {
-  logo = {
-    height: 30px
-    width: 227px
-  }
-
-  .header-logo {
-    background-image: url(ASSET_PATH + '/header-logo.png')
-    display: block
-    height: logo.height
-    width: logo.width
-    background-size: @width @height
-  }
-
-  .header-main {
-    display: flex
+  /* wide header */
+  .header-body[wide] {
+    logo = {
+      height: 30px
+      width: 227px
+    }
 
     .header-logo {
-      margin-right: 40px
+      background-image: url(ASSET_PATH + '/header-logo.png')
+      display: block
+      height: logo.height
+      width: logo.width
+      background-size: @width @height
+    }
+
+    .header-main {
+      display: flex
+
+      .header-logo {
+        margin-right: 40px
+      }
+    }
+
+    .header-nav_main,
+    .header-nav_utility {
+      align-items: center
+      height: logo.height
     }
   }
 
-  .header-nav_main,
-  .header-nav_utility {
-    align-items: center
-    height: logo.height
-  }
-}
+  /* condensed header */
+  .header-body[condensed] {
+    logo = {
+      height: 24px
+      width: 170px
+    }
 
-.header_condensed {
+    .header-link {
+      display: block
+      font-size: 0
+    }
 
-  .header-link {
-    display: block
-    font-size: 0
-  }
+    .header-logo {
+      background-image: url(ASSET_PATH + '/header-logo.png')
+      height: logo.height
+      width: logo.width
+      background-size: @width @height
+    }
 
-  .header-logo {
-    background-image: url(ASSET_PATH + '/header-logo.png')
-    height: 24px
-    width: 170px
-    background-size: @width @height
-  }
-
-  .header-cart .material-icons {
-    font-size: 24px
-  }
-
-  &:not([opened]) .header-flyout {
-    display: none
+    .header-cart .material-icons {
+      font-size: logo.height
+    }
   }
 
+  /* header flyout */
   .header-flyout {
+    // content height + padding
+    condensed-height = (24px + 20px)
     background-color: colors.neutral
-    left: 0
-    position: absolute
-    top: 100%
+    height: s('calc(100% - %s)', condensed-height)
+    overflow: auto
+    position: fixed
+    right: 100%
+    top: condensed-height
     width: 100%
   }
 }
