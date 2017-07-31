@@ -1,0 +1,25 @@
+@require '../../core/index.styl'
+@require '../../core/vars.styl'
+
+form {
+
+  input {
+    background: transparent
+    display: block
+    line-height: 2
+    width: 100%
+
+    &[bottom-line] {
+      border: 0
+      border-bottom: 1px solid
+    }
+  }
+}
+
+[dark-bg] form {
+  color: white
+
+  input[bottom-line] {
+    border-bottom-color: white
+  }
+}
