@@ -4,6 +4,24 @@
 @require '../../lib/widgets/footer/index.styl'
 @require '../../lib/core/vars.styl'
 
+.home-section {
+  padding: 65px 0
+
+  h2 {
+    font-size: 25px
+    margin-bottom: 30px
+    text-transform: none
+  }
+
+  &[off-color] {
+    background-color: colors.grey
+
+    h2 {
+      color: colors.blue
+    }
+  }
+}
+
 .home-info-blocks {
 
   .home-dark-block {
