@@ -6,8 +6,18 @@
 .info-blocks {
   display: flex
 
-  .info-block {
-    width: 50%
+  +media('>=' + breakpoints.mobile) {
+    .info-block {
+      width: 50%
+    }
+  }
+
+  +media('<' + breakpoints.mobile) {
+    flex-direction: column
+
+    .info-block {
+      width: 100%
+    }
   }
 }
 
@@ -15,7 +25,18 @@
   align-items: center
   display: flex
   justify-content: space-around
-  padding: 65px 15px
+  padding-left: 15px
+  padding-right: @padding-left
+
+  +media('>=' + breakpoints.mobile) {
+    padding-bottom: 65px
+    padding-top: @padding-bottom
+  }
+
+  +media('<' + breakpoints.mobile) {
+    padding-bottom: 40px
+    padding-top: @padding-bottom
+  }
 
   .block-content {
     h3 {
