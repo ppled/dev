@@ -4,10 +4,15 @@
 @require '../../components/subscribe-box/index.styl'
 
 .site-footer {
-  @extend $light-text
   background-color: colors.neutral
-  color: white
-  padding: 65px 0
+
+  +media('>=' + breakpoints.mobile) {
+    padding: 65px 0
+  }
+
+  +media('<' + breakpoints.mobile) {
+    padding: 40px 0
+  }
 
   .constrain {
     display: flex
@@ -23,11 +28,19 @@
     background-color: alpha(white, .25)
     border: 0
     height: 1px
-    margin: 40px 0
     width: 160px
+
+    +media('<=' + breakpoints.mobile) {
+      margin: 30px 0
+    }
+
+    +media('>' + breakpoints.mobile) {
+      margin: 40px 0
+    }
   }
 
   .footer-info {
+    color: white
     font-size: 12px
 
     span {
