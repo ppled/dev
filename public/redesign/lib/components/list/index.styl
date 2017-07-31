@@ -2,14 +2,29 @@
 @require '../../core/vars.styl'
 
 .list {
+  list-style-type: none
+}
+
+// dark variant
+[dark-bg] .list {
+  > .list-item {
+    color: white
+  }
+}
+
+// bold variants
+.list {
+  &[bold] > .list-item,
   > .list-item[bold] {
     font-weight: 700
   }
 }
 
+/*
+ * menu
+ */
 .list[menu] {
   display: flex
-  list-style-type: none
 
   > .list-item {
     font-size: 10px
@@ -88,8 +103,10 @@
   }
 }
 
+/*
+ * menu-blocks
+ */
 .list[menu-blocks] {
-  list-style-type: none
 
   > .list-item {
     font-size: 10px
@@ -108,18 +125,7 @@
 }
 
 [dark-bg] .list[menu-blocks] {
-
-  > .list-item {
-    color: white
-
-    &:not(:last-child) {
-      border-bottom-color: rgba(255, 255, 255, .25)
-    }
-  }
-}
-
-.list[menu][bold] {
-  > .list-item {
-    font-weight: 700
+  > .list-item:not(:last-child) {
+    border-bottom-color: alpha(white, .25)
   }
 }
