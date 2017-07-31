@@ -21,6 +21,23 @@
 }
 
 /*
+ * default
+ */
+.list:not([menu]):not([menu-blocks]) {
+  > .list-item {
+    line-height: 1.5
+    padding-left: 1em
+    position: relative
+
+    &:before {
+      content: '•'
+      left: 0
+      position: absolute
+    }
+  }
+}
+
+/*
  * menu
  */
 .list[menu] {
