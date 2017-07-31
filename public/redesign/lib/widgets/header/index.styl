@@ -4,16 +4,14 @@
 @require '../../components/list/index.styl'
 @require '../../components/nav-toggle/index.styl'
 
-device-breakpoint = 820px
-
 wide-device() {
-  +media('>=' + device-breakpoint) {
+  +media('>=' + breakpoints.header) {
     {block}
   }
 }
 
 condensed-device() {
-  +media('<' + device-breakpoint) {
+  +media('<' + breakpoints.header) {
     {block}
   }
 }
