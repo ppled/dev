@@ -1,6 +1,7 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
 @require '../../core/mixins.styl'
+@require '../../components/subscribe-box/index.styl'
 
 .site-footer {
   @extend $light-text
@@ -12,6 +13,10 @@
     display: flex
     flex-direction: column
     align-items: center
+  }
+
+  .footer-subscribe {
+    max-width: 345px
   }
 
   .footer-hr {
