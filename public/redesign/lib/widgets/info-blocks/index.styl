@@ -1,0 +1,30 @@
+@require '../../core/index.styl'
+@require '../../core/vars.styl'
+@require '../../core/mixins.styl'
+@require '../../components/list/index.styl'
+
+.info-blocks {
+  display: flex
+
+  .info-block {
+    width: 50%
+  }
+}
+
+.info-block {
+  align-items: center
+  display: flex
+  justify-content: space-around
+  padding: 65px 15px
+
+  .block-content {
+    h3 {
+      font-size: 25px
+      margin-bottom: 25px
+    }
+  }
+}
+
+.info-block[dark-bg] {
+  color: white
+}
