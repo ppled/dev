@@ -1,0 +1,38 @@
+@require '../../core/index.styl'
+@require '../../core/mixins.styl'
+@require '../../core/vars.styl'
+@require '../../components/button/index.styl'
+@require '../../components/form/index.styl'
+
+.page-heading {
+  border-bottom: 1px solid colors.neutral
+  padding-bottom: 15px
+
+  h1 {
+    color: colors.neutral
+    font-size: 31px
+  }
+}
+
+.page-heading[with-search] {
+  align-items: flex-end
+  display: flex
+  justify-content: space-between
+
+  .heading-search {
+    display: flex
+    width: 340px
+
+    .search-input {
+      margin-right: 5px
+    }
+  }
+}
+
+[dark-bg] .page-heading {
+  border-bottom-color: white
+
+  h1 {
+    color: white
+  }
+}

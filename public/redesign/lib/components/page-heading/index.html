@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>Page Heading component</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../showcase.styl" />
+    <link rel="stylesheet" href="./index.styl" />
+  </head>
+  <body>
+
+    <div class="showcase">
+
+      <h4>.page-heading</h4>
+
+      <div class="page-heading">
+        <h1>Lorem Ipsum</h1>
+      </div>
+    </div>
+
+    <div class="showcase">
+
+      <h4>.page-heading[with-search]</h4>
+
+      <div class="page-heading" with-search>
+        <h1>Lorem Ipsum</h1>
+        <form class="heading-search" action="#">
+          <label class="sr-only" for="search-input">Search Lorem Ipsum</label>
+          <input bare id="search-input" class="search-input" type="search" placeholder="Search Lorem Ipsum">
+          <button class="search-btn btn_bare"><i class="material-icons">search</i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="showcase" dark-bg>
+
+      <h4>[dark-bg] .page-heading[with-search]</h4>
+
+      <div class="page-heading" with-search>
+        <h1>Lorem Ipsum</h1>
+        <form class="heading-search" action="#">
+          <label class="sr-only" for="search-input2">Search Lorem Ipsum</label>
+          <input bare id="search-input2" class="search-input" type="search" placeholder="Search Lorem Ipsum">
+          <button class="search-btn btn_bare"><i class="material-icons">search</i></button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
