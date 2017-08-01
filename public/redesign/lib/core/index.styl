@@ -45,3 +45,20 @@ main {
 .display-block {
   display: block
 }
+
+.general-page {
+
+  +media('>=' + breakpoints.mobile) {
+    padding-bottom: 65px
+    padding-top: @padding-bottom
+  }
+
+  +media('<' + breakpoints.mobile) {
+    padding-bottom: 30px
+    padding-top: @padding-bottom
+  }
+
+  .page-heading {
+    margin-bottom: 40px
+  }
+}
