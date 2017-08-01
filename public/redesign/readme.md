@@ -14,14 +14,14 @@
 - forms
   - for product quantity inputs, on blur, if value is empty, set to 1
   - focus animation on bottom-line inputs
-  - placeholder colors
 
 ### Pages
 
-- homepage
+- homepage (70%)
 - about
 - product list
 - product page
-- blog list
+- blog list (100%)
+  - live filter posts when searched
 - blog post
 - installation
