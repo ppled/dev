@@ -6,11 +6,22 @@
 
 .page-heading {
   border-bottom: 1px solid colors.neutral
-  padding-bottom: 15px
+
+  +media('>=' + breakpoints.mobile) {
+    padding-bottom: 15px
+  }
+
+  +media('<' + breakpoints.mobile) {
+    padding-bottom: 10px
+  }
 
   h1 {
     color: colors.neutral
     font-size: 31px
+
+    +media('<' + breakpoints.mobile) {
+      width: 100%
+    }
   }
 }
 
@@ -19,9 +30,24 @@
   display: flex
   justify-content: space-between
 
+  +media('<' + breakpoints.mobile) {
+    flex-direction: column
+
+    h1 {
+      margin-bottom: 15px
+    }
+  }
+
   .heading-search {
     display: flex
-    width: 340px
+
+    +media('>=' + breakpoints.mobile) {
+      width: 340px
+    }
+
+    +media('<' + breakpoints.mobile) {
+      width: 100%
+    }
 
     .search-input {
       margin-right: 5px
