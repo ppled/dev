@@ -1,16 +1,19 @@
 @require '../../core/index.styl'
-@require '../../core/vars.styl'
 @require '../../core/mixins.styl'
+@require '../../core/vars.styl'
 
 [class*="btn_"] {
   background-color: transparent
   border: 0
   cursor: pointer
-  font-size: 14px
   opacity: 1
-  padding: 10px 15px
-  text-transform: uppercase
   transition: opacity speeds.default
+
+  &:not(.btn_bare) {
+    font-size: 14px
+    padding: 10px 15px
+    text-transform: uppercase
+  }
 
   &:hover {
     opacity: .8
@@ -19,6 +22,10 @@
   &:focus {
     opacity: 1
   }
+}
+
+.btn_bare {
+  padding: 0
 }
 
 .btn_large {
