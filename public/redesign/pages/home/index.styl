@@ -3,6 +3,7 @@
 @require '../../lib/core/vars.styl'
 @require '../../lib/components/category-item/index.styl'
 @require '../../lib/components/blog-item/index.styl'
+@require '../../lib/components/grid/index.styl'
 @require '../../lib/widgets/header/index.styl'
 @require '../../lib/widgets/info-blocks/index.styl'
 @require '../../lib/widgets/footer/index.styl'
@@ -30,46 +31,6 @@
 
     h2 {
       color: colors.blue
-    }
-  }
-}
-
-.home-section-grid {
-  display: flex
-  flex-wrap: wrap
-  margin-bottom: -30px
-
-  .grid-item {
-    margin-bottom: 30px
-  }
-
-  // 3 columns
-  +media('>=850px') {
-    justify-content: space-between
-
-    .grid-item {
-      width: 32%
-    }
-  }
-
-  // 2 columns
-  +media('>=550px', '<850px') {
-    justify-content: space-between
-
-    .grid-item {
-      max-width: 400px
-      width: 48%
-    }
-  }
-
-  // 1 column
-  +media('<550px') {
-    align-items: center
-    flex-direction: column
-
-    .grid-item {
-      max-width: 400px
-      width: 100%
     }
   }
 }

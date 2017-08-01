@@ -1,0 +1,45 @@
+@require '../../core/index.styl'
+@require '../../core/mixins.styl'
+
+.grid {
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: -40px
+
+  .grid-item {
+    margin-bottom: 40px
+  }
+}
+
+.grid[three-col] {
+
+  // 3 columns
+  +media('>=850px') {
+    justify-content: space-between
+
+    .grid-item {
+      width: 32%
+    }
+  }
+
+  // 2 columns
+  +media('>=550px', '<850px') {
+    justify-content: space-between
+
+    .grid-item {
+      max-width: 400px
+      width: 48%
+    }
+  }
+
+  // 1 column
+  +media('<550px') {
+    align-items: center
+    flex-direction: column
+
+    .grid-item {
+      max-width: 400px
+      width: 100%
+    }
+  }
+}
