@@ -15,15 +15,31 @@ main {
   }
 }
 
+.sr-only {
+  &:not([focusable]),
+  &[focusable]:not(:focus) {
+    height: 1px
+    left: -9999px
+    overflow: hidden
+    position: absolute
+    top: @left
+    width: 1px
+  }
+}
+
 .constrain {
-  max-width: 1140px
   margin: 0 auto
+  max-width: 1140px
   padding: 0 15px
 }
 
 [dark-bg] {
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
+}
+
+.material-icons {
+  font-size: inherit
 }
 
 .display-block {
