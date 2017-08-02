@@ -1,4 +1,5 @@
 @require '../../core/index.styl'
+@require '../../core/mixins.styl'
 @require '../../core/vars.styl'
 
 .item_blog {
@@ -12,6 +13,7 @@
   }
 
   .item-title {
+    @extend $clip-line
     font-size: 21px
     font-weight: 300
     margin-bottom: 5px

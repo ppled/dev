@@ -3,6 +3,14 @@ $light-text {
   -webkit-font-smoothing: antialiased
 }
 
+$clip-line {
+  // because overflow cuts off text
+  line-height: 1.2
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+}
+
 /*
  * input: +media('<320px') { ... }
  * output: @media screen and (max-width: 320px) { ... }
