@@ -75,8 +75,13 @@ condensed-device() {
     }
 
     > .constrain {
+      align-items: center
       display: flex
       justify-content: space-between
+    }
+
+    .header-logo img {
+      display: block
     }
   }
 
@@ -88,11 +93,8 @@ condensed-device() {
     }
 
     .header-logo {
-      background-image: url(ASSET_PATH + '/header-logo.png')
-      display: block
       height: logo.height
       width: logo.width
-      background-size: @width @height
     }
 
     .header-main {
@@ -112,14 +114,13 @@ condensed-device() {
 
   /* condensed header */
   .header-body[condensed] {
-    logo = {
-      height: 24px
-      width: 170px
-    }
+    icon-size = 30px
+    height: 53px
 
     .header-nav-toggle {
-      height: logo.height
-      width: @height
+      height: icon-size
+      min-width: icon-size
+      width: icon-size
     }
 
     .header-link {
@@ -128,27 +129,26 @@ condensed-device() {
     }
 
     .header-logo {
-      background-image: url(ASSET_PATH + '/header-logo.png')
-      height: logo.height
-      width: logo.width
-      background-size: @width @height
+      margin-left: 15px
+      margin-right: @margin-left
+      max-width: 248px
+      width: 100%
     }
 
     .header-cart .material-icons {
-      font-size: logo.height
+      font-size: icon-size
     }
   }
 
   /* header flyout */
   .header-flyout {
-    // content height + padding
-    condensed-height = (24px + 20px)
+    header-height = 53px
     background-color: colors.neutral
-    height: s('calc(100% - %s)', condensed-height)
+    height: s('calc(100% - %s)', header-height)
     overflow: auto
     position: fixed
     right: 100%
-    top: condensed-height
+    top: header-height
     transform: translateX(0)
     transition: transform speeds.default
     width: 100%
