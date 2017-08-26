@@ -1,0 +1,75 @@
+@require '../../core/index.styl'
+@require '../../core/mixins.styl'
+@require '../../core/vars.styl'
+
+star-margin = .3em
+
+$star {
+  &:before {
+    content: '\E838'
+  }
+}
+
+$star_empty {
+  &:before {
+    content: '\E83A'
+  }
+}
+
+.rate-stars {
+  display: flex
+  width: (5em + (star-margin * 4))
+
+  .rate-star {
+    color: colors.yellow
+
+    .star-icon {
+      @extend $star_empty
+      display: block
+    }
+
+    &:not(:first-child) {
+      margin-left: star-margin
+    }
+  }
+
+  // .rate-stars[data-stars="3"]
+  for rating in (1..5) {
+    selectors = ()
+
+    // add appropriate amount of stars to selector based
+    // on total from [data-stars]
+    for star in (1..rating) {
+      push(selectors, '.rate-star:nth-child(' + star + ') .star-icon')
+    }
+
+    &[data-stars=\"{rating}\"] {
+      {join(',', selectors)} {
+        @extend $star
+      }
+    }
+  }
+}
+
+.rate-stars[editable] {
+  .rate-label {
+    position: relative
+    transition: transform speeds.default
+
+    &:hover {
+      transform: scale(1.2)
+    }
+
+    .label-radio {
+      appearance: none
+      -moz-appearance: none
+      -webkit-appearance: none
+      cursor: pointer
+      height: 1em
+      left: 0
+      position: absolute
+      top: 0
+      width: 1em
+    }
+  }
+}

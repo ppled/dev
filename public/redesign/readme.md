@@ -14,6 +14,8 @@
 - forms
   - for product quantity inputs, on blur, if value is empty, set to 1
   - focus animation on bottom-line inputs
+- add [polyfill](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) for Element.closest
+
 
 ### Pages
 
