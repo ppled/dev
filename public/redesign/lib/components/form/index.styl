@@ -1,6 +1,17 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
 
+text-inputs() {
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"] {
+    {block}
+  }
+}
+
 placeholder() {
   // need to be individual rules due to browsers acting weird
   &:-moz-placeholder {
@@ -22,7 +33,7 @@ placeholder() {
 
 form {
 
-  input {
+  +text-inputs() {
     background: transparent
     border: 0
     display: block
@@ -45,7 +56,7 @@ form {
 [dark-bg] form {
   color: white
 
-  input {
+  +text-inputs() {
 
     +placeholder() {
       color: alpha(white, .4)

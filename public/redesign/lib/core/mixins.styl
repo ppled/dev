@@ -1,14 +1,23 @@
-$light-text {
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
-}
-
 $clip-line {
   // because overflow cuts off text
   line-height: 1.2
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
+}
+
+$hidden-offscreen {
+  height: 1px
+  left: -9999px
+  overflow: hidden
+  position: absolute
+  top: @left
+  width: 1px
+}
+
+$light-text {
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
 }
 
 /*

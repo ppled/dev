@@ -1,7 +1,7 @@
 @require './reset.styl'
 @require './typography.styl'
-@require './vars.styl'
 @require './mixins.styl'
+@require './vars.styl'
 
 // accounting for fixed-positioned header
 main {
@@ -18,12 +18,7 @@ main {
 .sr-only {
   &:not([focusable]),
   &[focusable]:not(:focus) {
-    height: 1px
-    left: -9999px
-    overflow: hidden
-    position: absolute
-    top: @left
-    width: 1px
+    @extend $hidden-offscreen
   }
 }
 
