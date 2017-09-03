@@ -36,6 +36,8 @@ form {
   +text-inputs() {
     background: transparent
     border: 0
+    border-color: colors.neutral
+    border-style: solid
     display: block
     width: 100%
 
@@ -44,11 +46,27 @@ form {
     }
 
     &:not([bare]):not([bottom-line]) {
-      border: 1px solid colors.neutral
+      border-width: 1px
+      padding: 10px
     }
 
     &[bottom-line] {
-      border-bottom: 1px solid colors.neutral
+      border-bottom-width: 1px
+    }
+  }
+
+  .labeled-input {
+    display: flex
+    flex-direction: column
+
+    &:not(:last-child) {
+      margin-bottom: 15px
+    }
+
+    > span {
+      font-size: 10px
+      margin-bottom: 10px
+      text-transform: uppercase
     }
   }
 }
@@ -57,13 +75,14 @@ form {
   color: white
 
   +text-inputs() {
+    border-color: white
 
     +placeholder() {
       color: alpha(white, .4)
     }
 
     &[bottom-line] {
-      border-bottom-color: white
+      // border-bottom-color: white
     }
   }
 }
