@@ -16,14 +16,19 @@
   - focus animation on bottom-line inputs
 - add [polyfill](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) for Element.closest
 
-
 ### Pages
 
 - homepage (70%)
 - about
 - product list
-- product page
+- product page (17%)
+  - determine if pagination should be used in reviews
 - blog list (100%)
   - live filter posts when searched
 - blog post
 - installation
+
+### Cleanup
+
+- add rollup middleware so js bundles can be made
+- try out templating engine for components/widgets so HTML isn't as repeated
