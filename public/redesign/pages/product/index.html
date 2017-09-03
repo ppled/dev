@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>Petersen Parts | Product</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./index.styl" />
+  </head>
+  <body>
+    <header class="site-header">
+
+      <div class="header-body" wide>
+        <div class="constrain">
+          <div class="header-main">
+            <a class="header-logo" href="#">
+              <img src="/redesign/assets/header-logo.png" alt="Petersen Parts logo">
+            </a>
+
+            <ul class="header-nav_main list" menu>
+              <li class="list-item"><a href="#">Products</a></li>
+              <li class="list-item" active><a href="#">Blog</a></li>
+              <li class="list-item"><a href="#">About</a></li>
+              <li class="list-item"><a href="#">Installation</a></li>
+              <li class="list-item"><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <ul class="header-nav_utility list" menu bold>
+            <li class="list-item" badge="5"><a href="#">Shopping cart</a></li>
+            <li class="list-item"><a href="#">Log in</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header-body" condensed>
+        <div class="constrain">
+          <button class="header-nav-toggle">
+            <i class="bar_top"></i>
+            <i class="bar_middle"></i>
+            <i class="bar_bottom"></i>
+          </button>
+
+          <a class="header-link header-logo" href="#">
+            <img src="/redesign/assets/header-logo.png" alt="Petersen Parts logo">
+          </a>
+
+          <a class="header-link header-cart" href="#" badge="5">
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </div>
+      </div>
+
+      <div id="site-header-flyout" class="header-flyout" dark-bg>
+        <ul class="header-nav_main list" menu-blocks>
+          <li class="list-item"><a href="#">Products</a></li>
+          <li class="list-item" active><a href="#">Blog</a></li>
+          <li class="list-item"><a href="#">About</a></li>
+          <li class="list-item"><a href="#">Installation</a></li>
+          <li class="list-item"><a href="#">Contact</a></li>
+          <li class="list-item" bold><a href="#">Log in</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="section product-reviews">
+        <div class="constrain">
+          <div class="product-review">
+            <div class="review-rate">
+              <form action="#">
+                <fieldset>
+                  <legend class="review-heading">Rate this product</legend>
+                  <div class="rate-stars" editable>
+                    <label class="rate-star rate-label">
+                      <input class="label-radio" type="radio" name="rating" value="1" />
+                      <span class="sr-only">1</span>
+                      <i class="star-icon material-icons"></i>
+                    </label>
+                    <label class="rate-star rate-label">
+                      <input class="label-radio" type="radio" name="rating" value="2" />
+                      <span class="sr-only">2</span>
+                      <i class="star-icon material-icons"></i>
+                    </label>
+                    <label class="rate-star rate-label">
+                      <input class="label-radio" type="radio" name="rating" value="3" />
+                      <span class="sr-only">3</span>
+                      <i class="star-icon material-icons"></i>
+                    </label>
+                    <label class="rate-star rate-label">
+                      <input class="label-radio" type="radio" name="rating" value="4" />
+                      <span class="sr-only">4</span>
+                      <i class="star-icon material-icons"></i>
+                    </label>
+                    <label class="rate-star rate-label">
+                      <input class="label-radio" type="radio" name="rating" value="5" />
+                      <span class="sr-only">5</span>
+                      <i class="star-icon material-icons"></i>
+                    </label>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+
+            <hr class="review-separator" />
+
+            <h2 class="review-heading">Reviews</h2>
+
+            <div class="review-form">
+              <h3 class="review-subheading">Leave a review?</h3>
+              <form action="#">
+                <textarea name="body" rows="5" placeholder="Your review..."></textarea>
+                <button class="btn_dark form-submit" disabled>Leave Review</button>
+              </form>
+            </div>
+
+            <ul class="review-list">
+              <li class="list-item review-item">
+                <div class="rate-stars" data-stars="5">
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="sr-only">5 out of 5</span>
+                </div>
+                <span class="review-meta"><strong>Travis B.</strong> on Apr 11, 2017</span>
+                <blockquote class="review-body">
+                  <p>Great experience will buy again</p>
+                </blockquote>
+              </li>
+              <li class="list-item review-item">
+                <div class="rate-stars" data-stars="5">
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="sr-only">5 out of 5</span>
+                </div>
+                <span class="review-meta"><strong>Monte W.</strong> on May 15, 2017</span>
+                <blockquote class="review-body">
+                  <p>The white light is what I wanted. Easy to install, once I could plug them in to existing plugs, could not
+                    hard wired. I can see work area better. Yes, I will buy more later for the second work area. Not real sure
+                    that the clips will keep the lights in place. Installed May 9, 2017.</p>
+                </blockquote>
+              </li>
+              <li class="list-item review-item">
+                <div class="rate-stars" data-stars="5">
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="rate-star"><i class="star-icon material-icons"></i></span>
+                  <span class="sr-only">5 out of 5</span>
+                </div>
+                <span class="review-meta"><strong>Terrance H.</strong> on Mar 28, 2017</span>
+                <blockquote class="review-body">
+                  <p>Easy to install</p>
+                </blockquote>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" dark-bg>
+      <div class="constrain">
+
+        <div class="footer-subscribe subscribe-box">
+          <form action="#">
+            <label for="subscribe-box-email" class="subscribe-label">Subscribe for puppy kisses!</label>
+            <input class="subscribe-input" bottom-line id="subscribe-box-email" type="email" placeholder="janedoe@gmail.com">
+            <button class="subscribe-btn btn_light btn_large">Get those puppy kisses!</button>
+          </form>
+        </div>
+
+        <hr class="footer-hr">
+
+        <div class="footer-info">
+          <span><a href="tel:5072250286">(507) 225-0286</a> M-F 9:00-6:00</span>
+          <span class="info-copyright">Copyright &copy; 2017 Petersen Parts</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

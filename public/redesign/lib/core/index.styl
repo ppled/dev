@@ -41,7 +41,12 @@ main {
 }
 
 .general-page {
+  .page-heading {
+    margin-bottom: 40px
+  }
+}
 
+.section {
   +media('>=' + breakpoints.mobile) {
     padding-bottom: 65px
     padding-top: @padding-bottom
@@ -50,9 +55,5 @@ main {
   +media('<' + breakpoints.mobile) {
     padding-bottom: 30px
     padding-top: @padding-bottom
-  }
-
-  .page-heading {
-    margin-bottom: 40px
   }
 }
