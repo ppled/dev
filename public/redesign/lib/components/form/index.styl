@@ -1,35 +1,6 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
-
-text-inputs() {
-  input[type="email"],
-  input[type="number"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="text"] {
-    {block}
-  }
-}
-
-placeholder() {
-  // need to be individual rules due to browsers acting weird
-  &:-moz-placeholder {
-    {block}
-  }
-  &:-ms-input-placeholder {
-    {block}
-  }
-  &::-moz-placeholder {
-    {block}
-  }
-  &::-webkit-input-placeholder {
-    {block}
-  }
-  &::placeholder {
-    {block}
-  }
-}
+@require '../../core/mixins.styl'
 
 form {
 
@@ -39,6 +10,7 @@ form {
     border-color: colors.neutral
     border-style: solid
     display: block
+    max-width: 100%
     width: 100%
 
     +placeholder() {

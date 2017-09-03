@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-    <title>Product Reviews widget</title>
+    <title>Product Review widget</title>
 
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -51,7 +51,14 @@
 
       <h2 class="review-heading">Reviews</h2>
 
-      <div class="review-form"></div>
+      <div class="review-form">
+        <h3 class="review-subheading">Leave a review?</h3>
+
+        <form action="#">
+          <textarea name="body" rows="5" placeholder="Your review..."></textarea>
+          <button class="btn_dark form-submit" disabled>Leave Review</button>
+        </form>
+      </div>
 
       <ul class="review-list">
 

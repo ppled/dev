@@ -1,5 +1,7 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
+@require '../../components/button/index.styl'
+@require '../../components/form/index.styl'
 @require '../../components/rate-stars/index.styl'
 @require '../../components/review-item/index.styl'
 
@@ -16,6 +18,11 @@
     font-weight: 300
   }
 
+  .review-subheading {
+    font-weight: bold
+    margin-bottom: 15px
+  }
+
   .review-rate .rate-stars {
     font-size: 30px
     margin-top: 20px
@@ -23,6 +30,14 @@
 
   .review-form {
     margin-top: 25px
+
+    +text-inputs() {
+      border-color: colors.neutral_15
+    }
+
+    .form-submit {
+      margin-top: 15px
+    }
   }
 
   .review-list {

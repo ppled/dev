@@ -54,3 +54,34 @@ media(conditions...) {
     {block}
   }
 }
+
+text-inputs() {
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  textarea {
+    {block}
+  }
+}
+
+placeholder() {
+  // need to be individual rules due to browsers acting weird
+  &:-moz-placeholder {
+    {block}
+  }
+  &:-ms-input-placeholder {
+    {block}
+  }
+  &::-moz-placeholder {
+    {block}
+  }
+  &::-webkit-input-placeholder {
+    {block}
+  }
+  &::placeholder {
+    {block}
+  }
+}
