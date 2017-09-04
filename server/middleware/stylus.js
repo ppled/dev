@@ -1,11 +1,12 @@
-const md5 = require('md5')
-const stylus = require('stylus')
-const { extname, join } = require('path')
-const { promisify } = require('util')
-const { pifyCtx } = require('./utils.js')
+import fs from 'fs'
+import md5 from 'md5'
+import router from 'koa-route'
+import stylus from 'stylus'
+import { join } from 'path'
+import { promisify } from 'util'
+import { fileExists } from '../utils.js'
 
-const readFile = promisify(fs.readFile)
-const cache = {}
+const CACHE = {}
 
 function getStylusInstance (contents, path) {
   return stylus(contents)
@@ -23,7 +24,7 @@ async function getAffectedFiles (contents, path) {
 
   // get imported files' contents in parallel
   await Promise.all(importedFiles.map(async path => {
-    const contents = await readFile(path, 'utf-8')
+    const contents = await promisify(fs.readFile)(path, 'utf-8')
 
     result.push({ contents, path })
   }))
@@ -33,20 +34,20 @@ async function getAffectedFiles (contents, path) {
 
 function fileChanged (file) {
   const { contents, path } = file
-  const cacheObj = cache[path]
+  const cacheObj = CACHE[path]
   const hash = md5(contents)
-  let isChanged = true
+  let result = true
 
   if (cacheObj && cacheObj.hash === hash) {
-    isChanged = false
+    result = false
   }
 
-  return isChanged
+  return result
 }
 
 function updateFileHash (file) {
   const { contents, path } = file
-  const cacheObj = cache[path] = (cache[path] || {})
+  const cacheObj = CACHE[path] = (CACHE[path] || {})
 
   if (cacheObj.body) {
     // cached body is no longer valid
@@ -57,28 +58,22 @@ function updateFileHash (file) {
 }
 
 async function getContents (path) {
-  const cacheObj = cache[path]
-  const contents = await readFile(path, 'utf-8')
+  const cacheObj = CACHE[path]
+  const contents = await promisify(fs.readFile)(path, 'utf-8')
   const affectedFiles = await getAffectedFiles(contents, path)
   const changedFiles = affectedFiles.filter(fileChanged)
   // TODO: deps cache should be tied to parent path cache
   // { path: { hash: '', body: '', deps: { } } }
-  const shouldRender = changedFiles.length > 0 || !cacheObj.body
+  const shouldRender = changedFiles.length || !cacheObj.body
+  let result
 
   if (shouldRender) {
-    let rendered
-
-    try {
-      const instance = getStylusInstance(contents, path)
-      const render = pifyCtx(instance.render, instance)
-
-      rendered = await render()
-    } catch (error) {
-      rendered = error.message
-    }
+    const instance = getStylusInstance(contents, path)
+    const render = promisify(instance.render.bind(instance))
+    const rendered = await render()
 
     changedFiles.forEach(updateFileHash)
-    cache[path].body = rendered
+    CACHE[path].body = rendered
     result = rendered
   } else {
     result = cacheObj.body
@@ -87,20 +82,19 @@ async function getContents (path) {
   return result
 }
 
-module.exports = (request, response, next) => {
-  const { path } = request
+export default function serveStyl (PUBLIC_PATH) {
+  return router.get('**/*.styl', async ctx => {
+    const entry = join(process.cwd(), PUBLIC_PATH, ctx.path)
 
-  if (extname(path) === '.styl') {
-    const fullpath = join(__dirname, '../public', path)
+    if (await fileExists(entry)) {
+      try {
+        const contents = await getContents(entry)
 
-    getContents(fullpath)
-      .then(contents => {
-        response
-          .set('Content-Type', 'text/css')
-          .send(contents)
-      })
-      .catch(() => next())
-  } else {
-    next()
-  }
+        ctx.set('Content-Type', 'text/css')
+        ctx.body = contents
+      } catch (error) {
+        ctx.body = `Stylus error:\n${error.message}`
+      }
+    }
+  })
 }

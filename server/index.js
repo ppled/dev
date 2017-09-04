@@ -1,29 +1,21 @@
-require('dotenv').load()
+import env from './env.js'
+import Koa from 'koa'
+import mwAuth from './middleware/auth.js'
+import mwRollup from './middleware/rollup.js'
+import mwStylus from './middleware/stylus.js'
+import serve from 'koa-static'
 
-const express = require('express')
-const stylusMW = require('./middleware/stylus.js')
-const { extname, join } = require('path')
+const { NODE_ENV, PORT } = env.get()
+const PUBLIC_PATH = './public'
+const server = new Koa()
 
-const PORT = process.env.PORT || 1337
-const PUBLIC_PATH = join(__dirname, '../public')
-const app = express()
-const { static } = express
-
-// authentication
-if (process.env.NODE_ENV === 'production') {
-  const auth = require('express-basic-auth')
-  const { getAuthUsers } = require('./utils.js')
-
-  app.use(auth({
-    challenge: true,
-    realm: process.env.AUTH_REALM,
-    users: getAuthUsers()
-  }))
+if (NODE_ENV === 'production') {
+  server.use(mwAuth())
 }
 
-app.use(stylusMW)
-app.use(static(PUBLIC_PATH))
+server.use(mwRollup(PUBLIC_PATH))
+server.use(mwStylus(PUBLIC_PATH))
+server.use(serve(PUBLIC_PATH))
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`)
-})
+server.listen(PORT)
+console.log(`Server started on http://localhost:${PORT}`)
