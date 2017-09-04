@@ -1,11 +1,11 @@
 import fs from 'fs'
 import { promisify } from 'util'
 
-function isFunction (thing) {
+export function isFunction (thing) {
   return typeof thing === 'function'
 }
 
-async function fileExists (path) {
+export async function fileExists (path) {
   let result = true
 
   try {
@@ -19,7 +19,15 @@ async function fileExists (path) {
   return result
 }
 
-export {
-  fileExists,
-  isFunction
+export async function getFileModTime (path) {
+  let result
+
+  try {
+    const stats = await promisify(fs.stat)(path)
+    result = stats.mtime
+  } catch (error) {
+    result = null
+  }
+
+  return result
 }

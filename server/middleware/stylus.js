@@ -1,82 +1,79 @@
 import fs from 'fs'
-import md5 from 'md5'
 import router from 'koa-route'
 import stylus from 'stylus'
 import { join } from 'path'
 import { promisify } from 'util'
-import { fileExists } from '../utils.js'
+import { fileExists, getFileModTime } from '../utils.js'
 
 const CACHE = {}
 
-function getStylusInstance (contents, path) {
+class StylusCache {
+  constructor (path) {
+    this.body = null
+    this.files = []
+    this.path = path
+  }
+
+  get () {
+    return this.body
+  }
+
+  async isValid (instance) {
+    let result = true
+
+    if (this.body && instance.get('filename') === this.path) {
+      const keys = Object.keys(this.files)
+
+      for (let i = 0; i < keys.length; i++) {
+        const path = keys[i]
+        const modTime = this.files[path]
+
+        if (await getFileModTime(path) > modTime) {
+          result = false
+          break
+        }
+      }
+    } else {
+      result = false
+    }
+
+    return result
+  }
+
+  async update (instance, body) {
+    const files = [ instance.get('filename') ]
+      .concat(instance.deps())
+
+    this.body = body
+    this.files = {}
+
+    for (let i = 0; i < files.length; i++) {
+      const path = files[i]
+      this.files[path] = await getFileModTime(path)
+    }
+  }
+}
+
+async function getStylusInstance (path) {
+  const contents = await promisify(fs.readFile)(path, 'utf-8')
+
   return stylus(contents)
     .set('filename', path)
     .set('sourcemap', { inline: true })
 }
 
-async function getAffectedFiles (contents, path) {
-  const instance = getStylusInstance(contents, path)
-  const importedFiles = instance.deps()
-  const result = [
-    // add main file
-    { contents, path }
-  ]
-
-  // get imported files' contents in parallel
-  await Promise.all(importedFiles.map(async path => {
-    const contents = await promisify(fs.readFile)(path, 'utf-8')
-
-    result.push({ contents, path })
-  }))
-
-  return result
-}
-
-function fileChanged (file) {
-  const { contents, path } = file
-  const cacheObj = CACHE[path]
-  const hash = md5(contents)
-  let result = true
-
-  if (cacheObj && cacheObj.hash === hash) {
-    result = false
-  }
-
-  return result
-}
-
-function updateFileHash (file) {
-  const { contents, path } = file
-  const cacheObj = CACHE[path] = (CACHE[path] || {})
-
-  if (cacheObj.body) {
-    // cached body is no longer valid
-    delete cacheObj.body
-  }
-
-  cacheObj.hash = md5(contents)
-}
-
 async function getContents (path) {
-  const cacheObj = CACHE[path]
-  const contents = await promisify(fs.readFile)(path, 'utf-8')
-  const affectedFiles = await getAffectedFiles(contents, path)
-  const changedFiles = affectedFiles.filter(fileChanged)
-  // TODO: deps cache should be tied to parent path cache
-  // { path: { hash: '', body: '', deps: { } } }
-  const shouldRender = changedFiles.length || !cacheObj.body
+  const instance = await getStylusInstance(path)
+  const cache = CACHE[path] = (CACHE[path] || new StylusCache(path))
   let result
 
-  if (shouldRender) {
-    const instance = getStylusInstance(contents, path)
-    const render = promisify(instance.render.bind(instance))
-    const rendered = await render()
-
-    changedFiles.forEach(updateFileHash)
-    CACHE[path].body = rendered
-    result = rendered
+  if (await cache.isValid(instance)) {
+    result = cache.get()
   } else {
-    result = cacheObj.body
+    const render = promisify(instance.render.bind(instance))
+
+    result = await render()
+    await cache.update(instance, result)
   }
 
   return result
