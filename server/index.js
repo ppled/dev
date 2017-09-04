@@ -1,7 +1,7 @@
 require('dotenv').load()
 
 const express = require('express')
-const stylusMW = require('./stylus-middleware.js')
+const stylusMW = require('./middleware/stylus.js')
 const { extname, join } = require('path')
 
 const PORT = process.env.PORT || 1337
