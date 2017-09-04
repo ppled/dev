@@ -4,6 +4,7 @@
     "node": ">=7.10.0"
   },
   "scripts": {
+    "lint": "standard '**/*.js' --verbose | snazzy",
     "start": "node server/index.js",
     "start-w": "nodemon server/index.js"
   },
@@ -12,6 +13,8 @@
     "express": "^4.15.2",
     "express-basic-auth": "^1.0.1",
     "md5": "^2.2.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
