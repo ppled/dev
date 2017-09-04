@@ -1325,6 +1325,10 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.1.5"
 
+koa-add-trailing-slashes@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/koa-add-trailing-slashes/-/koa-add-trailing-slashes-1.1.0.tgz#fd5e0833d5864d06c9d17e48a1536fb18c16378d"
+
 koa-compose@^3.0.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/koa-compose/-/koa-compose-3.2.1.tgz#a85ccb40b7d986d8e5a345b3a1ace8eabcf54de7"

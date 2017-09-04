@@ -1,3 +1,4 @@
+import addTrailingSlashes from 'koa-add-trailing-slashes'
 import env from './env.js'
 import Koa from 'koa'
 import mwAuth from './middleware/auth.js'
@@ -15,6 +16,7 @@ if (NODE_ENV === 'production') {
 
 server.use(mwRollup(PUBLIC_PATH))
 server.use(mwStylus(PUBLIC_PATH))
+server.use(addTrailingSlashes())
 server.use(serve(PUBLIC_PATH))
 
 server.listen(PORT)
