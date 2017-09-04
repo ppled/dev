@@ -12,7 +12,6 @@
     "express": "^4.15.2",
     "express-basic-auth": "^1.0.1",
     "md5": "^2.2.1",
-    "pify": "^3.0.0",
     "stylus": "^0.54.5"
   },
   "devDependencies": {

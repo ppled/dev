@@ -1,10 +1,10 @@
 const md5 = require('md5')
-const pify = require('pify')
 const stylus = require('stylus')
 const { extname, join } = require('path')
+const { promisify } = require('util')
 const { pifyCtx } = require('./utils.js')
 
-const fs = pify(require('fs'))
+const readFile = promisify(fs.readFile)
 const cache = {}
 
 function getStylusInstance (contents, path) {
@@ -23,7 +23,7 @@ async function getAffectedFiles (contents, path) {
 
   // get imported files' contents in parallel
   await Promise.all(importedFiles.map(async path => {
-    const contents = await fs.readFile(path, 'utf-8')
+    const contents = await readFile(path, 'utf-8')
 
     result.push({ contents, path })
   }))
@@ -58,7 +58,7 @@ function updateFileHash (file) {
 
 async function getContents (path) {
   const cacheObj = cache[path]
-  const contents = await fs.readFile(path, 'utf-8')
+  const contents = await readFile(path, 'utf-8')
   const affectedFiles = await getAffectedFiles(contents, path)
   const changedFiles = affectedFiles.filter(fileChanged)
   // TODO: deps cache should be tied to parent path cache
