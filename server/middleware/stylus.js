@@ -10,7 +10,7 @@ const CACHE = {}
 class StylusCache {
   constructor (path) {
     this.body = null
-    this.files = []
+    this.files = {}
     this.path = path
   }
 
@@ -41,7 +41,7 @@ class StylusCache {
   }
 
   async update (instance, body) {
-    const files = [ instance.get('filename') ]
+    const files = [ this.path ]
       .concat(instance.deps())
 
     this.body = body
