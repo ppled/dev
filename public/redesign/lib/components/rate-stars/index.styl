@@ -2,7 +2,8 @@
 @require '../../core/mixins.styl'
 @require '../../core/vars.styl'
 
-star-margin = .3em
+star-margin = .1em
+star-margin_wide = .3em
 
 $star {
   &:before {
@@ -16,9 +17,13 @@ $star_empty {
   }
 }
 
+componentWidth(gutter) {
+  return (5em + (gutter * 4))
+}
+
 .rate-stars {
   display: flex
-  width: (5em + (star-margin * 4))
+  width: componentWidth(star-margin)
 
   .rate-star {
     color: colors.yellow
@@ -48,6 +53,14 @@ $star_empty {
         @extend $star
       }
     }
+  }
+}
+
+.rate-stars[wide] {
+  width: componentWidth(star-margin_wide)
+
+  .rate-star:not(:first-child) {
+    margin-left: star-margin_wide
   }
 }
 
