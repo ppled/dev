@@ -1,0 +1,79 @@
+@require '../../core/index.styl'
+@require '../../core/mixins.styl'
+@require '../../core/vars.styl'
+@require '../list/index.styl'
+
+breakpoint = 450px
+border = {
+  color: rgba(29, 34, 46, .25)
+  style: solid
+  width: 1px
+}
+
+.product-media {
+  border: border.style border.color
+  border-width: border.width 0 0 border.width
+
+  .media-img {
+    background-color: white
+    border: @border
+    border-width: 0 border.width border.width 0
+    display: flex
+
+    > a {
+      align-items: center
+      display: flex
+      height: 100%
+      justify-content: center
+      outline: border.width border.style transparent
+      overflow: hidden
+      transition: outline-color speeds.default
+      width: 100%
+
+      > img {
+        max-height: 100%
+        max-width: 100%
+        opacity: 1
+        transition: opacity speeds.default
+      }
+
+      &:hover {
+        outline-color: rgba(254, 254, 254, .3)
+
+        > img {
+          opacity: .8
+        }
+      }
+    }
+  }
+
+  .media-img[main] {
+    width: 100%
+
+    +media('>=' + breakpoint) {
+      height: 300px
+    }
+
+    +media('<' + breakpoint) {
+      height: 160px
+    }
+  }
+
+  .media-gallery {
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+
+    .media-img {
+      +media('>=' + breakpoint) {
+        height: 65px
+        width: 20%
+      }
+
+      +media('<' + breakpoint) {
+        height: 55px
+        width: 25%
+      }
+    }
+  }
+}
