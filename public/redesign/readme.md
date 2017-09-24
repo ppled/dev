@@ -12,7 +12,7 @@
   - support for badge
   - sr-only text
 - forms
-  - for product quantity inputs, on blur, if value is empty, set to 1
+  - make component for enabling button when valid
   - focus animation on bottom-line inputs
 - add [polyfill](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) for Element.closest
 
@@ -23,6 +23,7 @@
 - product list
 - product page (17%)
   - determine if pagination should be used in reviews
+  - for quantity inputs, on blur, if value is empty, set to 1
 - blog list (100%)
   - live filter posts when searched
 - blog post
@@ -30,5 +31,4 @@
 
 ### Cleanup
 
-- add rollup middleware so js bundles can be made
 - try out templating engine for components/widgets so HTML isn't as repeated
