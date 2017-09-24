@@ -1,0 +1,50 @@
+@require '../../core/index.styl'
+@require '../../core/vars.styl'
+@require '../button/index.styl'
+
+gutter = 15px
+
+.option-buttons {
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: (-1 * gutter)
+  width: 100%
+
+  .option-button {
+    margin-bottom: gutter
+    position: relative
+
+    &:not(:last-child) {
+      margin-right: gutter
+    }
+
+    .button-radio {
+      appearance: none
+      -moz-appearance: none
+      -webkit-appearance: none
+      cursor: pointer
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+    }
+
+    .button-label {
+      background-color: white
+      border: 1px solid colors.neutral_25
+      display: block
+      transition-duration: speeds.default
+      transition-property: background-color, border-color
+    }
+
+    .button-radio:checked + .button-label {
+      background-color: colors.blue_light
+      border-color: colors.neutral
+
+      &:hover {
+        opacity: 1
+      }
+    }
+  }
+}

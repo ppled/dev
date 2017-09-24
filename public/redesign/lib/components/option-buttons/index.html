@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>Option Buttons component</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
+    <link rel="stylesheet" href="../showcase.styl" />
+    <link rel="stylesheet" href="./index.styl" />
+  </head>
+  <body>
+    <div class="showcase">
+      <h4>.option-buttons</h4>
+      <div class="option-buttons">
+        <!-- use handleize filter for radio/label id
+          https://help.shopify.com/themes/liquid/filters/string-filters#handle-handleize -->
+        <div class="option-button">
+          <input id="6-foot" class="button-radio" type="radio" name="size" value="6 foot" checked />
+          <label for="6-foot" class="btn button-label">6 foot</label>
+        </div>
+        <div class="option-button">
+          <input id="4-foot" class="button-radio" type="radio" name="size" value="4 foot" />
+          <label for="4-foot" class="btn button-label">4 foot</label>
+        </div>
+        <div class="option-button">
+          <input id="2-foot" class="button-radio" type="radio" name="size" value="2 foot" />
+          <label for="2-foot" class="btn button-label">2 foot</label>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
