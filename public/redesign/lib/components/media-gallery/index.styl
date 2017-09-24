@@ -10,11 +10,11 @@ border = {
   width: 1px
 }
 
-.product-media {
+.media-gallery {
   border: border.style border.color
   border-width: border.width 0 0 border.width
 
-  .media-img {
+  .gallery-img {
     background-color: white
     border: @border
     border-width: 0 border.width border.width 0
@@ -47,7 +47,7 @@ border = {
     }
   }
 
-  .media-img[main] {
+  .gallery-img[main] {
     width: 100%
 
     +media('>=' + breakpoint) {
@@ -59,12 +59,12 @@ border = {
     }
   }
 
-  .media-gallery {
+  .gallery-thumbnails {
     display: flex
     flex-wrap: wrap
     width: 100%
 
-    .media-img {
+    .gallery-img {
       +media('>=' + breakpoint) {
         height: 65px
         width: 20%
