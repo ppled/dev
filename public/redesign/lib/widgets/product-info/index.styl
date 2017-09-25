@@ -1,0 +1,105 @@
+@require '../../core/index.styl'
+@require '../../core/vars.styl'
+@require '../../components/button/index.styl'
+@require '../../components/form/index.styl'
+@require '../../components/list/index.styl'
+@require '../../components/option-buttons/index.styl'
+@require '../../components/rate-stars/index.styl'
+
+breakpoint = 850px
+
+.product-info {
+
+  .info-title {
+    font-size: 31px
+    font-weight: 700
+  }
+
+  .info-rating {
+    margin-top: 10px
+  }
+
+  .info-price {
+    display: block
+    font-size: 25px
+    margin-top: 15px
+  }
+
+  .info-description {
+    line-height: 1.5
+    margin-top: 15px
+
+    .list {
+      margin-top: 10px
+      padding-left: 1em
+
+      +media('>=' + breakpoint) {
+        line-height: 2
+      }
+
+      +media('<' + breakpoint) {
+        line-height: 1.5
+      }
+    }
+  }
+
+  .info-options {
+    margin-top: 30px
+
+    .info-option {
+
+      &:not(:last-child) {
+        margin-bottom: 15px
+      }
+
+      .option-heading {
+        color: colors.neutral_60
+        font-size: 18px
+        font-weight: 300
+        margin-bottom: 10px
+        text-transform: uppercase
+      }
+    }
+  }
+
+  .info-separator {
+    margin: 25px 0
+  }
+
+  .info-atc {
+    display: flex
+
+    .atc-quantity {
+      align-items: center
+      display: flex
+      margin-right: 30px
+
+      > span {
+        margin-right: 5px
+      }
+
+      > input {
+        padding: 5px
+        text-align: center
+        width: 60px
+      }
+    }
+  }
+
+  .info-oos {
+
+    .oos-helper {
+      display: block
+      margin-bottom: 15px
+
+      em {
+        color: colors.negative
+        font-style: normal
+      }
+    }
+
+    .oos-input {
+      max-width: 350px
+    }
+  }
+}

@@ -27,6 +27,16 @@ form {
     }
   }
 
+  [small] &,
+  &[small]
+  [small] {
+    +text-inputs() {
+      &:not([bare]):not([bottom-line]) {
+        padding: 6px
+      }
+    }
+  }
+
   .labeled-input {
     display: flex
     flex-direction: column

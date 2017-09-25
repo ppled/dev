@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>Product info widget</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./index.styl" />
+  </head>
+  <body>
+    <div class="product-info">
+      <h1 class="info-title">Double Row Integrated LED</h1>
+
+      <div class="rate-stars info-rating" title="4 out of 5 stars" data-stars="4">
+        <span class="rate-star"><i class="star-icon material-icons"></i></span>
+        <span class="rate-star"><i class="star-icon material-icons"></i></span>
+        <span class="rate-star"><i class="star-icon material-icons"></i></span>
+        <span class="rate-star"><i class="star-icon material-icons"></i></span>
+        <span class="rate-star"><i class="star-icon material-icons"></i></span>
+        <span class="sr-only">4 out of 5 stars</span>
+      </div>
+
+      <span class="info-price">$40.00</span>
+
+      <div class="info-description">
+        <p>Nullam aliquet metus vitae ipsum scelerisque auctor. Morbi ultrices feugiat lacinia. Maecenas id nisl accumsan justo fermentum pharetra id in nulla.</p>
+
+        <ul class="list">
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing</li>
+          <li>Donec tristique eros a eros ullamcorper vel</li>
+          <li>Aenean semper nisi vel felis venenatis dignissim</li>
+          <li>Maecenas sollicitudin nulla a dui suscipit</li>
+          <li>Maecenas imperdiet erat egestas odio</li>
+        </ul>
+      </div>
+
+      <form action="#">
+        <div class="info-options">
+          <fieldset class="info-option">
+            <legend class="option-heading">Size</legend>
+            <ul class="list option-buttons" bare>
+              <!-- use handleize filter for radio/label id
+                https://help.shopify.com/themes/liquid/filters/string-filters#handle-handleize -->
+              <li class="option-button">
+                <input id="4-foot" class="button-radio" type="radio" name="size" value="4 foot" checked />
+                <label for="4-foot" class="btn button-label">4 foot</label>
+              </li>
+              <li class="option-button">
+                <input id="2-foot" class="button-radio" type="radio" name="size" value="2 foot" />
+                <label for="2-foot" class="btn button-label">2 foot</label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+
+        <hr class="info-separator" />
+
+        <div class="info-atc">
+          <label class="atc-quantity">
+            <span>Qty:</span>
+            <input bottom-line type="number" value="1">
+          </label>
+
+          <button class="btn_light">Add to cart</button>
+        </div>
+      </form>
+
+      <!-- Out of stock form
+        <form action="#">
+          <div class="info-oos">
+            <span class="oos-helper"><em>Out of stock.</em> Get notified when in stock:</span>
+
+            <label class="labeled-input oos-input" small>
+              <span>Your email</span>
+              <input type="email" name="notify-email" placeholder="janedoe@gmail.com" />
+            </label>
+
+            <button class="btn_light">Notify me when back in stock</button>
+          </div>
+        </form>
+      -->
+    </div>
+  </body>
+</html>
