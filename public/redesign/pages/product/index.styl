@@ -1,8 +1,46 @@
 @require '../../lib/core/index.styl'
+@require '../../lib/core/mixins.styl'
 @require '../../lib/core/vars.styl'
+@require '../../lib/components/media-gallery/index.styl'
 @require '../../lib/widgets/header/index.styl'
+@require '../../lib/widgets/product-info/index.styl'
 @require '../../lib/widgets/product-review/index.styl'
 @require '../../lib/widgets/footer/index.styl'
+
+.product-main {
+  breakpoint = 650px
+
+  .main-condensed-show {
+    +media('>=' + breakpoint) {
+      display: none
+    }
+  }
+
+  .main-condensed-hide {
+    +media('<' + breakpoint) {
+      display: none
+    }
+  }
+
+  +media('>=' + breakpoint) {
+    .constrain {
+      align-items: flex-start
+      display: flex
+      justify-content: space-between
+    }
+
+    .main-gallery,
+    .main-info {
+      width: 47%
+    }
+  }
+
+  +media('<' + breakpoint) {
+    .main-gallery {
+      margin: 25px 0
+    }
+  }
+}
 
 .product-reviews {
   background-color: colors.grey
