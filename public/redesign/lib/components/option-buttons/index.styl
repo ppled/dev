@@ -1,6 +1,8 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
 @require '../button/index.styl'
+@require '../form/index.styl'
+@require '../list/index.styl'
 
 gutter = 15px
 
@@ -28,14 +30,17 @@ gutter = 15px
       position: absolute
       top: 0
       width: 100%
+      z-index: 1
     }
 
     .button-label {
       background-color: white
       border: 1px solid colors.neutral_25
       display: block
+      position: relative
       transition-duration: speeds.default
       transition-property: background-color, border-color
+      z-index: 2
     }
 
     .button-radio:checked + .button-label {
