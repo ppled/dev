@@ -24,7 +24,7 @@
 - homepage (70%)
 - about
 - product list
-- product page (17%)
+- product page (60%)
   - determine if pagination should be used in reviews
   - for quantity inputs, on blur, if value is empty, set to 1
 - blog list (100%)
