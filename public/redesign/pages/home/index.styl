@@ -2,36 +2,18 @@
 @require '../../lib/core/mixins.styl'
 @require '../../lib/core/vars.styl'
 @require '../../lib/components/category-item/index.styl'
+@require '../../lib/components/content-section/index.styl'
 @require '../../lib/components/blog-item/index.styl'
 @require '../../lib/components/grid/index.styl'
 @require '../../lib/widgets/header/index.styl'
 @require '../../lib/widgets/info-blocks/index.styl'
 @require '../../lib/widgets/footer/index.styl'
 
-.home-section {
-
-  +media('>=' + breakpoints.mobile) {
-    padding-bottom: 65px
-    padding-top: @padding-bottom
-  }
-
-  +media('<' + breakpoints.mobile) {
-    padding-bottom: 40px
-    padding-top: @padding-bottom
-  }
+.home-section[off-color] {
+  background-color: colors.grey
 
   h2 {
-    font-size: 25px
-    margin-bottom: 30px
-    text-transform: none
-  }
-
-  &[off-color] {
-    background-color: colors.grey
-
-    h2 {
-      color: colors.blue
-    }
+    color: colors.blue
   }
 }
 
