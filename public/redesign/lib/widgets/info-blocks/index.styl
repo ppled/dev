@@ -1,6 +1,7 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
 @require '../../core/mixins.styl'
+@require '../../components/content-section/index.styl'
 @require '../../components/list/index.styl'
 
 .info-blocks {
@@ -28,29 +29,13 @@
   padding-left: 15px
   padding-right: @padding-left
 
-  +media('>=' + breakpoints.mobile) {
-    padding-bottom: 65px
-    padding-top: @padding-bottom
-  }
-
-  +media('<' + breakpoints.mobile) {
-    padding-bottom: 40px
-    padding-top: @padding-bottom
-  }
-
   .block-content {
-
-    h3 {
-      font-size: 25px
-      margin-bottom: 25px
-    }
-
     .list {
       line-height: 1.5
     }
   }
-}
 
-.info-block[dark-bg] {
-  color: white
+  .block-heading {
+    margin-bottom: 25px
+  }
 }
