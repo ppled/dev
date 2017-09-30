@@ -1,0 +1,21 @@
+@require '../../core/index.styl'
+@require '../../core/mixins.styl'
+@require '../../core/vars.styl'
+
+.content-section {
+
+  +media('>=' + breakpoints.mobile) {
+    padding-bottom: 65px
+    padding-top: @padding-bottom
+  }
+
+  +media('<' + breakpoints.mobile) {
+    padding-bottom: 40px
+    padding-top: @padding-bottom
+  }
+
+  .section-heading {
+    font-size: 25px
+    margin-bottom: 30px
+  }
+}
