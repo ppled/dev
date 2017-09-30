@@ -19,16 +19,23 @@ border = {
     border: @border
     border-width: 0 border.width border.width 0
     display: flex
+    position: relative
 
     > a {
       align-items: center
       display: flex
       height: 100%
       justify-content: center
-      outline: border.width border.style transparent
       overflow: hidden
-      transition: outline-color speeds.default
       width: 100%
+
+      &:not(:focus) {
+        z-index: 1
+      }
+
+      &:focus {
+        z-index: 2
+      }
 
       > img {
         max-height: 100%
@@ -38,8 +45,6 @@ border = {
       }
 
       &:hover {
-        outline-color: rgba(254, 254, 254, .3)
-
         > img {
           opacity: .8
         }
