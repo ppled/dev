@@ -28,6 +28,7 @@
 - product page (60%)
   - determine if pagination should be used in reviews
   - for quantity inputs, on blur, if value is empty, set to 1
+  - possibly add play button icon over video gallery thumbnails
 - blog list (100%)
   - live filter posts when searched
 - blog post
