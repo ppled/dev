@@ -31,6 +31,7 @@
   - determine if pagination should be used in reviews
   - for quantity inputs, on blur, if value is empty, set to 1
   - possibly add play button icon over video gallery thumbnails
+  - handle info blocks when only one is showing
 - blog list (100%)
   - live filter posts when searched
 - blog post
