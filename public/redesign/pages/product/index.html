@@ -253,11 +253,11 @@
       <section class="section product-reviews">
         <div class="constrain">
           <div class="product-review">
-            <div class="review-rate">
+            <div class="review-form">
               <form action="#">
                 <fieldset>
                   <legend class="review-heading">Rate this product</legend>
-                  <div id="product-rate-stars" class="rate-stars" wide editable>
+                  <div id="product-rate-stars" class="rate-stars form-rate" wide editable>
                     <label class="rate-star rate-label" title="Click to rate 1 star">
                       <input class="label-radio" type="radio" name="rating" value="1" />
                       <span class="sr-only">1 stars</span>
@@ -285,20 +285,22 @@
                     </label>
                   </div>
                 </fieldset>
+
+                <!-- <label class="form-input">
+                  <h3 class="review-subheading">Leave a review (optional)</h3>
+                  <textarea name="body" rows="5" placeholder="Your review..."></textarea>
+                </label>
+
+                <div class="review-actions">
+                  <button class="btn_dark" title="Save your rating">Save</button>
+                  <button class="btn_bare review-delete" title="Delete your rating">Delete</button>
+                </div> -->
               </form>
             </div>
 
             <hr class="review-separator" />
 
             <h2 class="review-heading">Reviews</h2>
-
-            <div class="review-form">
-              <h3 class="review-subheading">Leave a review?</h3>
-              <form action="#">
-                <textarea name="body" rows="5" placeholder="Your review..."></textarea>
-                <button class="btn_dark form-submit" disabled>Leave Review</button>
-              </form>
-            </div>
 
             <ul class="review-list">
               <li class="list-item review-item">

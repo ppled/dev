@@ -15,6 +15,7 @@
     color: colors.neutral
     font-size: 20px
     font-weight: 300
+    margin-bottom: 20px
   }
 
   .review-subheading {
@@ -22,20 +23,36 @@
     margin-bottom: 15px
   }
 
-  .review-rate .rate-stars {
-    font-size: 30px
-    margin-top: 20px
-  }
-
   .review-form {
-    margin-top: 25px
+
+    .form-rate {
+      font-size: 30px
+    }
 
     +text-inputs() {
       border-color: colors.neutral_15
     }
 
-    .form-submit {
+    .form-input {
+      display: block
       margin-top: 15px
+    }
+  }
+
+  .review-actions {
+    display: flex
+    margin-top: 15px
+
+    [class*="btn"]:not(:last-child) {
+      margin-right: 15px
+    }
+
+    .btn_bare {
+      font-size: 14px
+    }
+
+    .review-delete {
+      color: colors.negative
     }
   }
 
