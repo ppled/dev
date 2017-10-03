@@ -1,6 +1,8 @@
 @require '../../core/index.styl'
 @require '../../core/vars.styl'
 @require '../../components/button/index.styl'
+@require '../../components/form/index.styl'
+@require '../../components/rate-stars/index.styl'
 
 .item_product {
   font-size: 16px
@@ -9,7 +11,6 @@
     @extend $clip-line
     display: block
     font-weight: 700
-    margin-bottom: 15px
     max-width: 100%
     overflow: hidden
     text-overflow: ellipsis
@@ -17,40 +18,50 @@
   }
 
   .item-img {
-    display: block
-    margin-bottom: 15px
+    height: 0
+    margin-top: 15px
+    overflow: hidden
+    padding-top: percentage(150 / 270)
+    position: relative
+
+    > img {
+      left: 50%
+      max-width: 100%
+      position: absolute
+      top: 50%
+      transform: translate(-50%, -50%)
+    }
   }
 
-  .item-price-qty {
-    align-items: center
-    display: flex
-    justify-content: space-between
+  .item-rating {
+    margin-top: 10px
   }
 
   .item-price {
+    display: block
     font-weight: 700
+    margin-top: 10px
   }
 
-  .item-qty {
+  .item-atc {
+    display: flex
+    justify-content: space-between
+    margin-top: 10px
 
-    > label {
+    .atc-quantity {
       align-items: center
       display: flex
-      justify-content: space-between
-      width: 100px
+      margin-right: 30px
 
-      .qty-input {
-        border-bottom: 1px solid colors.neutral
-        border: 0
-        padding: 10px 5px
+      > span {
+        margin-right: 5px
+      }
+
+      > input {
+        padding: 5px
         text-align: center
         width: 60px
       }
     }
-  }
-
-  .item-btn {
-    display: block
-    margin-top: 15px
   }
 }

@@ -6,26 +6,37 @@
     <title>Product Item component</title>
 
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../showcase.styl" />
     <link rel="stylesheet" href="./index.styl" />
   </head>
   <body>
     <div class="showcase">
-      <div class="item_product" style="width: 270px">
-        <a class="display-block" href="#">
+      <div class="item_product" style="width: 300px">
+        <a class="display-block" href="#" title="Lorem Ipsum">
           <span class="item-title">Lorem Ipsum</span>
-          <img class="item-img" src="//placehold.it/270x150" alt="Image for Lorem Ipsum">
-        </a>
-        <div class="item-price-qty">
-          <span class="item-price">$13.37</span>
-          <div class="item-qty">
-            <label>
-              <span class="qty-label">Qty:</span>
-              <input type="number" class="qty-input" value="1">
-            </label>
+          <div class="item-img">
+            <img src="//placehold.it/650x390" alt="Image for Lorem Ipsum" />
           </div>
+        </a>
+        <div class="rate-stars item-rating" title="5 out of 5 stars" data-stars="5">
+          <span class="rate-star"><i class="star-icon material-icons"></i></span>
+          <span class="rate-star"><i class="star-icon material-icons"></i></span>
+          <span class="rate-star"><i class="star-icon material-icons"></i></span>
+          <span class="rate-star"><i class="star-icon material-icons"></i></span>
+          <span class="rate-star"><i class="star-icon material-icons"></i></span>
+          <span class="sr-only">5 out of 5 stars</span>
         </div>
-        <button class="item-btn btn_light">Add to cart</button>
+        <span class="item-price">$13.37</span>
+        <form action="#">
+          <div class="item-atc">
+            <label class="atc-quantity">
+              <span>Qty:</span>
+              <input bottom-line type="number" value="1" min="1">
+            </label>
+            <button class="btn_light">Add to cart</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
