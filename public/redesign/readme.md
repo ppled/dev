@@ -26,8 +26,8 @@
     - sr-only text
 - homepage (70%)
 - about
-- product list
-- product page (85%)
+- product list (0%)
+- product page (100%)
   - determine if pagination should be used in reviews
   - for quantity inputs, on blur, if value is empty, set to 1
   - possibly add play button icon over video gallery thumbnails
