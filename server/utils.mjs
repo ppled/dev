@@ -1,5 +1,7 @@
 import fs from 'fs'
-import { promisify } from 'util'
+import util from 'util'
+
+const { promisify } = util
 
 export function isFunction (thing) {
   return typeof thing === 'function'

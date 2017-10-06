@@ -1,5 +1,5 @@
 import auth from 'basic-auth'
-import env from '../env.js'
+import env from '../env.mjs'
 
 function getUsers () {
   // users in `USER::PASS;` format

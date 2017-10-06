@@ -1,8 +1,9 @@
+import path from 'path'
+import rollup from 'rollup'
 import router from 'koa-route'
-import { rollup } from 'rollup'
-import { join } from 'path'
-import { fileExists } from '../utils.js'
+import { fileExists } from '../utils.mjs'
 
+const { join } = path
 const CACHE = {}
 const CONFIG = {
   format: 'iife',
@@ -17,7 +18,7 @@ export default function serveJS (PUBLIC_PATH) {
       const cache = CACHE[entry]
 
       try {
-        const bundle = await rollup({ cache, input: entry })
+        const bundle = await rollup.rollup({ cache, input: entry })
         const output = await bundle.generate(CONFIG)
 
         CACHE[entry] = bundle

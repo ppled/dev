@@ -1,9 +1,9 @@
 import addTrailingSlashes from 'koa-add-trailing-slashes'
-import env from './env.js'
+import env from './env.mjs'
 import Koa from 'koa'
-import mwAuth from './middleware/auth.js'
-import mwRollup from './middleware/rollup.js'
-import mwStylus from './middleware/stylus.js'
+import mwAuth from './middleware/auth.mjs'
+import mwRollup from './middleware/rollup.mjs'
+import mwStylus from './middleware/stylus.mjs'
 import serve from 'koa-static'
 
 const { NODE_ENV, PORT } = env.get()

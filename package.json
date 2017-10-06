@@ -1,12 +1,12 @@
 {
   "private": true,
   "engines": {
-    "node": ">=8.0.0 <9"
+    "node": ">=8.6.0 <9"
   },
   "scripts": {
-    "lint": "standard 'server/**/*.js' --verbose | snazzy",
-    "start": "yarn lint && rollup -c && node build/server.js",
-    "start-w": "nodemon --watch server --exec 'yarn start'"
+    "prestart": "standard 'server/**/*.mjs' --verbose | snazzy",
+    "start": "node --experimental-modules server/index.mjs",
+    "start-w": "nodemon -w server -e mjs --exec 'yarn start'"
   },
   "dependencies": {
     "basic-auth": "^1.1.0",
@@ -15,7 +15,7 @@
     "koa-add-trailing-slashes": "^1.1.0",
     "koa-route": "^3.2.0",
     "koa-static": "^4.0.1",
-    "rollup": "^0.49.2",
+    "rollup": "^0.50.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
     "stylus": "^0.54.5"

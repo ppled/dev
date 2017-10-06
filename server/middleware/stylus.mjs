@@ -1,10 +1,12 @@
 import fs from 'fs'
+import path from 'path'
 import router from 'koa-route'
 import stylus from 'stylus'
-import { join } from 'path'
-import { promisify } from 'util'
-import { fileExists, getFileModTime } from '../utils.js'
+import util from 'util'
+import { fileExists, getFileModTime } from '../utils.mjs'
 
+const { join } = path
+const { promisify } = util
 const CACHE = {}
 
 class StylusCache {
