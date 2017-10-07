@@ -9,6 +9,21 @@
 @require '../../lib/widgets/info-blocks/index.styl'
 @require '../../lib/widgets/footer/index.styl'
 
+.home-hero {
+  background-image: url(ASSET_PATH + '/field.jpg')
+  background-size: cover
+  height: 80vh
+  padding: (@height * .15) 0
+  width: 100%
+
+  .constrain {
+    align-items: center
+    display: flex
+    height: 100%
+    justify-content: space-between
+  }
+}
+
 .home-section[grey] {
   background-color: colors.grey
 
