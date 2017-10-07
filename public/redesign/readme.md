@@ -2,6 +2,30 @@
 
 ## TODO
 
+### Pages
+
+- homepage (70%)
+- about
+- product list (0%)
+- blog post
+- installation
+
+### Tweaks
+
+- header/footer
+  - maybe fade in animation on header links underline
+  - build full mobile drawer interactions
+  - shopping cart badge in mobile header
+    - support for badge
+    - sr-only text
+- product page
+  - determine if pagination should be used in reviews
+  - for quantity inputs, on blur, if value is empty, set to 1
+  - possibly add play button icon over video gallery thumbnails
+  - handle info blocks when only one is showing
+- blog list
+  - live filter posts when searched
+
 ### Misc
 
 - support/compatibility
@@ -15,27 +39,6 @@
 - decide if breadcrumbs should be added
   - depends on the category structure we move to
 - once mockups are done, hardcore browser test
-
-### Pages
-
-- header/footer (100%)
-  - maybe fade in animation on header links underline
-  - build full mobile drawer interactions
-  - shopping cart badge in mobile header
-    - support for badge
-    - sr-only text
-- homepage (70%)
-- about
-- product list (0%)
-- product page (100%)
-  - determine if pagination should be used in reviews
-  - for quantity inputs, on blur, if value is empty, set to 1
-  - possibly add play button icon over video gallery thumbnails
-  - handle info blocks when only one is showing
-- blog list (100%)
-  - live filter posts when searched
-- blog post
-- installation
 
 ### Cleanup
 
