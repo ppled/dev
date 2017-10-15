@@ -2,41 +2,22 @@
   "current": "Default",
   "presets": {
     "Default": {
-      "sections": {
-        "collection-list": {
-          "type": "collection-list",
-          "blocks": {
-            "collection-list-0": {
-              "type": "collection"
-            },
-            "collection-list-1": {
-              "type": "collection"
-            },
-            "collection-list-2": {
-              "type": "collection"
-            }
-          },
-          "block_order": [
-            "collection-list-0",
-            "collection-list-1",
-            "collection-list-2"
-          ]
-        },
-        "featured-collection": {
-          "type": "featured-collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        },
-        "featured-product": {
-          "type": "featured-product"
-        }
-      },
-      "content_for_index": [
-        "collection-list",
-        "featured-collection",
-        "featured-product"
-      ]
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
     }
   }
 }

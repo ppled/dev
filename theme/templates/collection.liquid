@@ -1,98 +1,100 @@
+<!-- /templates/collection.liquid -->
+{% comment %}
+
+  For more information on collection tags:
+    - http://docs.shopify.com/themes/liquid-variables/collection
+
+{% endcomment %}
+
 {% paginate collection.products by 12 %}
-  <header role="banner">
-    <h1>{{ collection.title }}</h1>
+
+{% include 'breadcrumb' %}
+
+{% comment %}
+  Use .grid--rev so that the collection tags appear below the products on mobile
+{% endcomment %}
+<div class="grid--rev">
+  <div class="grid__item large--three-quarters">
+
+    {% comment %}
+      Different markup if a collection description exists
+    {% endcomment %}
     {% if collection.description != blank %}
-      <div class="rte">
-        {{ collection.description }}
+      <header class="section-header">
+        <h1 class="section-header__title">{{ collection.title }}</h1>
+        <div class="rte rte--header">
+          {{ collection.description }}
+        </div>
+      </header>
+      <hr>
+      <div class="section-header">
+        <div class="section-header__right">
+          {% include 'collection-sorting' %}
+        </div>
       </div>
+    {% else %}
+      <header class="section-header">
+        <h1 class="section-header__title section-header__left">{{ collection.title }}</h1>
+        <div class="section-header__right">
+          {% include 'collection-sorting' %}
+        </div>
+      </header>
     {% endif %}
 
-    {% if collection.all_tags.size > 0 %}
-      <ul>
-        {% for tag in collection.all_tags %}
-          {% if current_tags contains tag %}
-            <li class="active">
-              {{ tag | link_to_remove_tag: tag }}
-            </li>
-          {% else %}
-            <li>
-              {{ tag | link_to_tag: tag }}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </header>
+    {% comment %}
+      Use class grid-uniform to have evenly sized columns clear
+      each other properly at each breakpoint.
+    {% endcomment %}
+    <div class="grid-uniform">
 
-  <div>
-    {% for product in collection.products %}
-      <div>
-        {% if product.featured_image != blank %}
-          <a href="{{ product.url | within: collection }}">
-            {{ product.featured_image.src | img_url: '480x480' | img_tag: product.featured_image.alt }}
-          </a>
+      {% comment %}
+        Loop through our products in the current collection.
+        See the snippet 'product-grid-item' for the layout.
+      {% endcomment %}
+      {% for product in collection.products %}
+
+        {% include 'product-grid-item' %}
+
+      {% else %}
+
+        {% if collection.handle == 'all' and current_tags == '' %}
+
+          {% comment %}
+            Add default products to help with onboarding for collections/all only
+          {% endcomment %}
+          {% unless emptyState %}
+            {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+            {% assign emptyState = true %}
+          {% endunless %}
+          {% include 'onboarding-empty-collection' %}
+
+        {% else %}
+
+          {% comment %}
+            If collection exists but is empty, display message
+          {% endcomment %}
+          <div class="grid__item">
+            <p>{{ 'collections.general.no_matches' | t }}</p>
+          </div>
+
         {% endif %}
 
-        <p>
-          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        </p>
-        <p>
-          {% if product.compare_at_price > product.price %}
+      {% endfor %}
 
-            {% if product.price_varies %}
-              {%- assign sale_price = product.price | money -%}
-              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-            {% else %}
-              {{ 'products.product.on_sale' | t }}
-              {{ product.price | money }}
-            {% endif %}
+    </div>
 
-          {% else %}
-
-            {% if product.price_varies %}
-              {%- assign price = product.price | money -%}
-              {{ 'products.product.from_text_html' | t: price: price }}
-            {% else %}
-              {{ product.price | money }}
-            {% endif %}
-
-          {% endif %}
-
-          {% if product.compare_at_price > product.price %}
-            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-            <s>{{ product.compare_at_price | money }}</s>
-          {% endif %}
-
-          {% unless product.available %}
-            {{ 'products.product.sold_out' | t }}
-          {% endunless %}
-        </p>
+    {% if paginate.pages > 1 %}
+      <hr>
+      <div class="pagination">
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
       </div>
+    {% endif %}
 
-    {% else %}
-      {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-        {% for i in (1..8) %}
-          <a href="#">
-            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
-          </a>
-
-          <p>
-            <a href="#">{{ 'homepage.onboarding.product_title' | t }}</a>
-          </p>
-
-          <p>
-            {{ 1999 | money }}
-          </p>
-        {% endfor %}
-      {% else %}
-        <p>{{ 'collections.general.no_matches' | t }}</p>
-      {% endif %}
-
-    {% endfor %}
   </div>
 
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
+  <div class="grid__item large--one-quarter">
+    {% include 'collection-sidebar' %}
+  </div>
+</div>
+
 {% endpaginate %}
