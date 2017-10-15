@@ -1,0 +1,11 @@
+# duplicate this file to 'config.yml'
+
+development:
+  password: [api-password]
+  theme_id: "[theme-id]"
+  store: [store].myshopify.com
+
+production:
+  password: [api-password]
+  theme_id: "[theme-id]"
+  store: [store].myshopify.com

@@ -9,8 +9,10 @@
     "start-w": "nodemon -w server -e mjs --exec 'yarn start'"
   },
   "dependencies": {
+    "@frctl/fractal": "^1.1.7",
     "basic-auth": "^1.1.0",
     "dotenv": "^4.0.0",
+    "glob": "^7.1.2",
     "koa": "^2.3.0",
     "koa-add-trailing-slashes": "^1.1.0",
     "koa-route": "^3.2.0",
