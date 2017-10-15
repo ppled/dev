@@ -1,0 +1,11 @@
+# password, store, theme_id set by env variables
+
+development:
+  directory: theme
+  ignore_files:
+    - config/settings_data.json
+
+production:
+  directory: deploy
+  ignore_files:
+    - config/settings_data.json
