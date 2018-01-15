@@ -1,4 +1,4 @@
-# Petersen Parts dev server
+# Petersen Parts components
 
 ## .env
 

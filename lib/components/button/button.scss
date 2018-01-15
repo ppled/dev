@@ -1,0 +1,11 @@
+@import '../../_core/reset.scss';
+@import '../../_core/vars.scss';
+
+.btn {
+  background-color: map-get($colors, neutral);
+  color: white;
+}
+
+.btn--border {
+  border: 3px solid pink;
+}

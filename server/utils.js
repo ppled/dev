@@ -1,6 +1,11 @@
 const fs = require('fs')
-const { join } = require('path')
 const { promisify } = require('util')
+
+function buildQuery (props = {}) {
+  return Object.keys(props)
+    .map(key => (`${key}=${props[key]}`))
+    .join('&')
+}
 
 async function fileExists (path) {
   let result = true
@@ -16,11 +21,7 @@ async function fileExists (path) {
   return result
 }
 
-function fromRoot (path = '') {
-  return join(__dirname, '../', path)
-}
-
 module.exports = {
-  fileExists,
-  fromRoot
+  buildQuery,
+  fileExists
 }

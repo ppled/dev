@@ -1,5 +1,7 @@
+import dotenv from 'dotenv'
+
 // local env vars
-require('dotenv').load()
+dotenv.load()
 
 let cache
 
@@ -16,6 +18,6 @@ function get () {
   return cache
 }
 
-module.exports = {
+export default {
   get
 }

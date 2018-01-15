@@ -1,41 +1,33 @@
 {
-  "private": true,
+  "name": "@ppled/components",
+  "version": "0.0.1",
   "engines": {
-    "node": ">=8.6.0 <9"
+    "node": ">=8.6"
   },
   "scripts": {
-    "lint": "standard '**/*.+(js|tag)' --verbose --plugin html | snazzy",
-    "start": "fractal start",
-    "test": "yarn lint",
-    "theme:deploy": "node lib/scripts/deploy.js"
+    "lint": "standard --verbose | snazzy",
+    "start": "webpack-dev-server",
+    "test": "npm run lint",
+    "prepush": "npm run test"
   },
-  "fractal": {
-    "main": "dev/server/index.js"
+  "dependencies": {
+    "basic-auth": "^1.1.0",
+    "css-loader": "^0.28.7",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "glob": "^7.1.2",
+    "husky": "^0.14.3",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   },
   "standard": {
     "ignore": [
-      "deploy",
-      "theme"
+      "-old"
     ]
-  },
-  "dependencies": {
-    "@frctl/fractal": "^1.1.7",
-    "basic-auth": "^1.1.0",
-    "dotenv": "^4.0.0",
-    "eslint-plugin-html": "^3.2.2",
-    "glob": "^7.1.2",
-    "koa": "^2.3.0",
-    "koa-add-trailing-slashes": "^1.1.0",
-    "koa-route": "^3.2.0",
-    "koa-static": "^4.0.1",
-    "node-sass": "^4.5.3",
-    "rollup": "^0.50.0",
-    "shopify-themekit": "^0.0.1",
-    "snazzy": "^7.0.0",
-    "standard": "^10.0.3",
-    "stylus": "^0.54.5"
-  },
-  "devDependencies": {
-    "husky": "^0.14.3"
   }
 }
