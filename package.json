@@ -4,6 +4,8 @@
   "engines": {
     "node": ">=8.6"
   },
+  "repository": "github:ppled/components",
+  "license": "MIT",
   "scripts": {
     "lint": "standard --verbose | snazzy",
     "start": "webpack-dev-server",

@@ -1,12 +1,6 @@
 # This is a list of the expected environment vars used throughout this repo
 # DUPLICATE THIS FILE TO '.env'
 
-# general
 PORT=
 NODE_ENV=development
 AUTH_USERS=user1::pass;user2::pass
-
-# Shopify themekit
-THEMEKIT_PASSWORD=
-THEMEKIT_STORE=
-THEMEKIT_THEME_ID=
