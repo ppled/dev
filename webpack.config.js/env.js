@@ -1,11 +1,9 @@
-import dotenv from 'dotenv'
-
 // local env vars
-dotenv.load()
+require('dotenv').load()
 
 let cache
 
-function get () {
+exports.get = function () {
   if (!cache) {
     const { NODE_ENV, PORT } = process.env
 
@@ -16,8 +14,4 @@ function get () {
   }
 
   return cache
-}
-
-export default {
-  get
 }
