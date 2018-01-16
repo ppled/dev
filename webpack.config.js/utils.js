@@ -21,7 +21,16 @@ async function fileExists (path) {
   return result
 }
 
+function stripTrailingSlash (path) {
+  if (path.slice(-1) === '/') {
+    path = path.slice(0, -1)
+  }
+
+  return path
+}
+
 module.exports = {
   buildQuery,
-  fileExists
+  fileExists,
+  stripTrailingSlash
 }
