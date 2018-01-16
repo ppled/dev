@@ -50,6 +50,11 @@ module.exports = PUBLIC_PATH => app => {
   app.use(viewsMW(PUBLIC_PATH, {
     // ejs base context
     context: {
+      doXTimes (amount, callback) {
+        for (let i = amount; i > 0; i--) {
+          callback(i)
+        }
+      },
       setDefaults (locals, defaults) {
         Object.keys(defaults).forEach(key => {
           if (!locals[key]) locals[key] = defaults[key]
