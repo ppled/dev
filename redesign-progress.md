@@ -30,7 +30,7 @@
 
 - support/compatibility
   - schema tags
-  - accessibility ([a11y](http://a11yproject.com/checklist.html), [Bootstrap](http://getbootstrap.com/getting-started/#accessibility))
+  - accessibility ([a11y](http://a11yproject.com/checklist.html), [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/#accessibility))
   - nojs handling (add nojs class to html; modify experience for anything that requires js)
 - forms
   - make component for enabling button when valid
