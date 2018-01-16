@@ -39,7 +39,3 @@
 - decide if breadcrumbs should be added
   - depends on the category structure we move to
 - once mockups are done, hardcore browser test
-
-### Cleanup
-
-- try out templating engine for components/widgets so HTML isn't as repeated
