@@ -1,0 +1,156 @@
+@import '../../_core/vars.styl'
+@import '../../_core/mixins.styl'
+@import '../list/list.styl'
+@import '../nav-toggle/nav-toggle.styl'
+
+wide-device() {
+  +media('>=' + breakpoints.header) {
+    {block}
+  }
+}
+
+condensed-device() {
+  +media('<' + breakpoints.header) {
+    {block}
+  }
+}
+
+.site-header {
+
+  +wide-device() {
+    .header-flyout {
+      display: none
+    }
+  }
+
+  +condensed-device() {
+
+    .header-nav-toggle {
+      @extend $nav-toggle
+    }
+
+    // header opened
+    &[opened] {
+
+      .header-nav-toggle {
+        @extend $nav-toggle_opened
+      }
+
+      .header-flyout {
+        transform: translateX(100%)
+      }
+    }
+  }
+
+  /* both wide and condensed header */
+  .header-body {
+    background-color: white
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2)
+    left: 0
+    min-width: 300px
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: z-indexes.header
+
+    +wide-device() {
+      padding-bottom: 20px
+      padding-top: @padding-bottom
+
+      // condensed header on wide devices
+      &[condensed] {
+        display: none
+      }
+    }
+
+    +condensed-device() {
+      padding-bottom: 10px
+      padding-top: @padding-bottom
+
+      // wide header on condensed devices
+      &[wide] {
+        display: none
+      }
+    }
+
+    > .constrain {
+      align-items: center
+      display: flex
+      justify-content: space-between
+    }
+
+    .header-logo img {
+      display: block
+    }
+  }
+
+  /* wide header */
+  .header-body[wide] {
+    logo = {
+      height: 30px
+      width: 227px
+    }
+
+    .header-logo {
+      height: logo.height
+      width: logo.width
+    }
+
+    .header-main {
+      display: flex
+
+      .header-logo {
+        margin-right: 40px
+      }
+    }
+
+    .header-nav_main,
+    .header-nav_utility {
+      align-items: center
+      height: logo.height
+    }
+  }
+
+  /* condensed header */
+  .header-body[condensed] {
+    icon-size = 30px
+    height: 53px
+
+    .header-nav-toggle {
+      height: icon-size
+      min-width: icon-size
+      width: icon-size
+    }
+
+    .header-link {
+      display: block
+      font-size: 0
+    }
+
+    .header-logo {
+      margin-left: 15px
+      margin-right: @margin-left
+      max-width: 248px
+      width: 100%
+    }
+
+    .header-cart .material-icons {
+      font-size: icon-size
+    }
+  }
+
+  /* header flyout */
+  .header-flyout {
+    header-height = 53px
+    background-color: colors.neutral
+    height: s('calc(100% - %s)', header-height)
+    overflow: auto
+    position: fixed
+    right: 100%
+    top: header-height
+    transform: translateX(0)
+    transition: transform speeds.default
+    width: 100%
+    z-index: z-indexes.header
+  }
+}

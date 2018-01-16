@@ -30,7 +30,7 @@ module.exports = PUBLIC_PATH => app => {
   }
 
   app.use(slashesMW())
-  app.use('/assets', express.static(path.join(__dirname, '../lib/assets')))
+  app.use('/assets', express.static(path.join(__dirname, '../../lib/assets')))
 
   // rewrite webpack filepaths:
   // /pages-home-home.js -> /pages/home/home.js

@@ -1,0 +1,40 @@
+@import '../../_core/mixins.styl'
+@import '../../_core/vars.styl'
+
+// @require '../../lib/components/category-item/index.styl'
+// @require '../../lib/components/blog-item/index.styl'
+// @require '../../lib/components/grid/index.styl'
+// @require '../../lib/components/section/index.styl'
+// @require '../../lib/widgets/info-blocks/index.styl'
+// @require '../../lib/widgets/footer/index.styl'
+
+.home-hero {
+  background-image: url('/assets/field.jpg')
+  background-size: cover
+  height: 80vh
+  padding: (@height * .15) 0
+  width: 100%
+
+  .constrain {
+    align-items: center
+    display: flex
+    height: 100%
+    justify-content: space-between
+  }
+}
+
+.home-section[grey] {
+  background-color: colors.grey
+
+  h2 {
+    color: colors.blue
+  }
+}
+
+.home-dark-block {
+  background-color: colors.neutral
+}
+
+.home-light-block {
+  background-color: colors.yellow
+}

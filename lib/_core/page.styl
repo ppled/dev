@@ -1,7 +1,7 @@
-@require './reset.styl'
-@require './typography.styl'
-@require './mixins.styl'
-@require './vars.styl'
+@import './reset.styl'
+@import './typography.styl'
+@import './mixins.styl'
+@import './vars.styl'
 
 body.outlines-disabled {
   *:focus {
@@ -11,7 +11,6 @@ body.outlines-disabled {
 
 // accounting for fixed-positioned header
 main {
-
   +media('>=' + breakpoints.header) {
     margin-top: 70px
   }
