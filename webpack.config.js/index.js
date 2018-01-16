@@ -44,8 +44,17 @@ module.exports = async () => ({
   },
   module: { rules: [
     {
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader']
+      test: /\.styl$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'stylus-loader',
+          options: {
+            preferPathResolver: 'webpack'
+          }
+        }
+      ]
     }
   ]},
   devtool: 'inline-source-map',
