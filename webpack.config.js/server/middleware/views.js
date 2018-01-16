@@ -1,5 +1,5 @@
 const ejs = require('ejs')
-const { dirname, extname, join } = require('path')
+const { extname, join } = require('path')
 const { promisify } = require('util')
 const { fileExists, stripTrailingSlash } = require('../../utils.js')
 
