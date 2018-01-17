@@ -33,12 +33,12 @@ module.exports = PUBLIC_PATH => app => {
   app.use('/assets', express.static(path.join(__dirname, '../../lib/assets')))
 
   // rewrite webpack filepaths:
-  // /pages-home-home.js -> /pages/home/home.js
+  // /pages+home+home.js -> /pages/home/home.js
   app.use((request, response, next) => {
     const pattern = /^\/(components|pages)\/[\w-]+\/[\w-]+\.js$/
 
     if (pattern.test(request.path)) {
-      const newPath = '/' + request.path.slice(1).replace(/\//g, '-')
+      const newPath = '/' + request.path.slice(1).replace(/\//g, '+')
 
       request.url = request.url.replace(request.path, newPath)
       next('route')

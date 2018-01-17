@@ -27,7 +27,7 @@ async function getEntries () {
       // components/button/_preview.js -> components-button-_preview
       const entryName = filepath
         .replace(path.extname(filepath), '')
-        .replace(/\//g, '-')
+        .replace(/\//g, '+')
 
       return {
         ...entries,
