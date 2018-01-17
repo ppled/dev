@@ -51,7 +51,7 @@ module.exports = PUBLIC_PATH => app => {
     // ejs base context
     context: {
       doXTimes (amount, callback) {
-        for (let i = amount; i > 0; i--) {
+        for (let i = 1; i <= amount; i++) {
           callback(i)
         }
       },
