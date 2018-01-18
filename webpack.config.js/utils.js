@@ -21,6 +21,10 @@ async function fileExists (path) {
   return result
 }
 
+function pluralize (str, amount) {
+  return `${str}${amount > 1 ? 's' : ''}`
+}
+
 function stripTrailingSlash (path) {
   if (path.slice(-1) === '/') {
     path = path.slice(0, -1)
@@ -32,5 +36,6 @@ function stripTrailingSlash (path) {
 module.exports = {
   buildQuery,
   fileExists,
+  pluralize,
   stripTrailingSlash
 }

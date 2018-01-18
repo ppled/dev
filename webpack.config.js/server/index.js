@@ -4,6 +4,7 @@ const express = require('express')
 const path = require('path')
 const slashesMW = require('./middleware/slashes.js')
 const viewsMW = require('./middleware/views.js')
+const { pluralize } = require('../utils.js')
 
 function getAuthUsers () {
   // users in `USER::PASS;` format
@@ -55,6 +56,7 @@ module.exports = PUBLIC_PATH => app => {
           callback(i)
         }
       },
+      pluralize,
       setDefaults (locals, defaults) {
         Object.keys(defaults).forEach(key => {
           if (!locals[key]) locals[key] = defaults[key]
