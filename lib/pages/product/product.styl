@@ -1,12 +1,15 @@
 @import '../../_core/mixins.styl'
 @import '../../_core/vars.styl'
+@import '../../components/button/button.styl'
+@import '../../components/form/form.styl'
 @import '../../components/grid/grid.styl'
 @import '../../components/info-blocks/info-blocks.styl'
-// @import '../../components/media-gallery/media-gallery.styl'
-// @import '../../components/product-info/product-info.styl'
+@import '../../components/list/list.styl'
+@import '../../components/media-gallery/media-gallery.styl'
 @import '../../components/option-buttons/option-buttons.styl'
 @import '../../components/product-item/product-item.styl'
-// @import '../../components/product-review/product-review.styl'
+@import '../../components/product-review/product-review.styl'
+@import '../../components/rate-stars/rate-stars.styl'
 @import '../../components/section/section.styl'
 
 .product-main {
@@ -40,6 +43,103 @@
   +media('<' + breakpoint) {
     .main-gallery {
       margin: 25px 0
+    }
+  }
+}
+
+.product-info {
+
+  .info-title {
+    font-size: 31px
+    font-weight: 700
+  }
+
+  .info-rating {
+    margin-top: 10px
+  }
+
+  .info-price {
+    display: block
+    font-size: 25px
+    margin-top: 15px
+  }
+
+  .info-description {
+    line-height: 1.5
+    margin-top: 15px
+
+    .list {
+      breakpoint = 850px
+      margin-top: 10px
+      padding-left: 1em
+
+      +media('>=' + breakpoint) {
+        line-height: 2
+      }
+
+      +media('<' + breakpoint) {
+        line-height: 1.5
+      }
+    }
+  }
+
+  .info-options {
+    margin-top: 30px
+
+    .info-option {
+
+      &:not(:last-child) {
+        margin-bottom: 15px
+      }
+
+      .option-heading {
+        color: colors.neutral_60
+        font-size: 18px
+        font-weight: 300
+        margin-bottom: 10px
+        text-transform: uppercase
+      }
+    }
+  }
+
+  .info-separator {
+    margin: 25px 0
+  }
+
+  .info-atc {
+    display: flex
+
+    .atc-quantity {
+      align-items: center
+      display: flex
+      margin-right: 30px
+
+      > span {
+        margin-right: 5px
+      }
+
+      > input {
+        padding: 5px
+        text-align: center
+        width: 60px
+      }
+    }
+  }
+
+  .info-oos {
+
+    .oos-helper {
+      display: block
+      margin-bottom: 15px
+
+      em {
+        color: colors.negative
+        font-style: normal
+      }
+    }
+
+    .oos-input {
+      max-width: 350px
     }
   }
 }

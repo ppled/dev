@@ -23,6 +23,9 @@
   - for quantity inputs, on blur, if value is empty, set to 1
   - possibly add play button icon over video gallery thumbnails
   - handle info blocks when only one is showing
+  - "Log in to rate"
+  - make fancybox work again
+    - try to find non-jquery alternative (or fork and remove jquery and fancy non-neded stuff)
 - blog list
   - live filter posts when searched
 
