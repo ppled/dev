@@ -1,4 +1,5 @@
 const ejs = require('ejs')
+const prettyHtml = require('pretty')
 const { extname, join } = require('path')
 const { promisify } = require('util')
 const { fileExists, stripTrailingSlash } = require('../../utils.js')
@@ -40,7 +41,13 @@ module.exports = function handleViews (PUBLIC_PATH, options = {}) {
             options.root = PUBLIC_PATH
 
             render(entry, options)
-              .then(body => response.send(body))
+              .then(body => {
+                if ((request.query || {}).hasOwnProperty('pretty')) {
+                  body = prettyHtml(body, { ocd: true })
+                }
+
+                response.send(body)
+              })
               .catch(error => response.send(`ejs error:\n${error.stack}`))
           } else {
             next()
