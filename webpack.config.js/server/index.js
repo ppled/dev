@@ -36,7 +36,7 @@ module.exports = PUBLIC_PATH => app => {
   // rewrite webpack filepaths:
   // /pages+home+home.js -> /pages/home/home.js
   app.use((request, response, next) => {
-    const pattern = /^\/(components|pages)\/[\w-]+\/[\w-]+\.js$/
+    const pattern = /^\/(components|pages)\/[\w-]+\/[\w-]+\.(css|js)$/
 
     if (pattern.test(request.path)) {
       const newPath = '/' + request.path.slice(1).replace(/\//g, '+')

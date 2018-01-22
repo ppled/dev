@@ -1,4 +1,5 @@
 const env = require('./env.js')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const glob = require('glob')
 const path = require('path')
 const setupServer = require('./server/index.js')
@@ -45,18 +46,23 @@ module.exports = async () => ({
   module: { rules: [
     {
       test: /\.styl$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        {
-          loader: 'stylus-loader',
-          options: {
-            preferPathResolver: 'webpack'
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader',
+          {
+            loader: 'stylus-loader',
+            options: {
+              preferPathResolver: 'webpack'
+            }
           }
-        }
-      ]
+        ]
+      })
     }
   ]},
+  plugins: [
+    new ExtractTextPlugin('[name].css')
+  ],
   devtool: 'inline-source-map',
   devServer: {
     before: setupServer(PUBLIC_PATH),
