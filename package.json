@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "standard --verbose | snazzy",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --host=0.0.0.0 --disable-host-check --no-color --no-hot --no-inline",
+    "start-dev": "webpack-dev-server",
     "test": "npm run lint",
     "prepush": "npm run test"
   },
