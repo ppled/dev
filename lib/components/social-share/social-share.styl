@@ -1,0 +1,36 @@
+@import '../../_core/mixins.styl'
+
+.social-share {
+  icon-size = 24px
+  align-items: center
+
+  .share-label {
+    font-size: 10px
+    text-transform: uppercase
+  }
+
+  .share-link {
+    @extend $opacity-hover
+    font-size: icon-size
+    text-align: center
+    width: icon-size
+  }
+
+  &[horizontal] {
+    display: flex
+
+    .share-link {
+      margin-left: icon-size
+    }
+  }
+
+  &[vertical] {
+    display: inline-flex
+    flex-direction: column
+    text-align: center
+
+    .share-link {
+      margin-top: icon-size
+    }
+  }
+}

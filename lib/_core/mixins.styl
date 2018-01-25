@@ -1,3 +1,5 @@
+@import './vars.styl'
+
 $clip-line {
   // because overflow cuts off text
   line-height: 1.2
@@ -18,6 +20,18 @@ $hidden-offscreen {
 $light-text {
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
+}
+
+$opacity-hover {
+  transition: opacity speeds.default
+
+  &:hover {
+    opacity: .8
+  }
+
+  &:focus {
+    opacity: 1
+  }
 }
 
 /*
