@@ -7,7 +7,7 @@
 - homepage (70%)
 - about
 - product list (0%)
-- blog post
+- blog post (90%)
 - installation
 
 ### Tweaks
@@ -28,6 +28,8 @@
     - try to find non-jquery alternative (or fork and remove jquery and fancy non-neded stuff)
 - blog list
   - live filter posts when searched
+- blog post
+  - put together generic body-text style (headings, paragraphs, etc) including colors, margins, weights, etc
 
 ### Misc
 

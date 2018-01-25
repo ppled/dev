@@ -1,0 +1,91 @@
+@import '../../_core/mixins.styl'
+@import '../../_core/vars.styl'
+@import '../../components/blog-item/blog-item.styl'
+@import '../../components/grid/grid.styl'
+@import '../../components/section/section.styl'
+@import '../../components/social-share/social-share.styl'
+
+content-width = 530px
+breakpoint = content-width
+
+.blog-post {
+
+  .post-constrain {
+    max-width: content-width
+    position: relative
+  }
+
+  .post-heading {
+    padding-bottom: 30px
+    padding-top: @padding-bottom
+
+    .heading-title {
+      color: colors.neutral
+      font-size: 31px
+      font-weight: 700
+    }
+
+    .heading-date {
+      font-size: 10px
+      margin-top: 5px
+      text-transform: uppercase
+    }
+  }
+
+  .post-social {
+    // 45px (right margin) + 35px (width of social) + 5px (padding) = 85px
+    social-breakpoint = (content-width + (85px * 2))
+
+    +media('<' + social-breakpoint) {
+      &.social-wide {
+        display: none
+      }
+    }
+
+    +media('>=' + social-breakpoint) {
+      &.social-condensed {
+        display: none
+      }
+
+      &.social-wide {
+        margin-right: 45px
+        position: absolute
+        right: 100%
+        top: 0
+      }
+    }
+  }
+
+  .post-hero {
+    align-items: center
+    display: flex
+    max-height: 400px
+    overflow: hidden
+
+    .hero-img {
+      width: 100%
+    }
+  }
+
+  .post-body {
+    line-height: 1.5
+    word-break: break-word
+
+    h2 {
+      color: colors.neutral
+      font-size: 25px
+      font-weight: 300
+      margin-bottom: 1em
+    }
+
+    p {
+      margin-bottom: 1em
+    }
+  }
+
+  .post-hr {
+    background-color: colors.neutral
+    height: 8px
+    margin: 30px 0
+  }
+}
