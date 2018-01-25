@@ -7,16 +7,8 @@
   opacity: 1
 
   &:not([disabled]) {
+    @extend $opacity-hover
     cursor: pointer
-    transition: opacity speeds.default
-
-    &:hover {
-      opacity: .8
-    }
-
-    &:focus {
-      opacity: 1
-    }
   }
 
   &:not(.btn_bare) {
