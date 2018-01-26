@@ -7,7 +7,6 @@
 - homepage (70%)
 - about
 - product list (0%)
-- blog post (90%)
 - installation
 
 ### Tweaks
@@ -30,6 +29,10 @@
   - live filter posts when searched
 - blog post
   - put together generic body-text style (headings, paragraphs, etc) including colors, margins, weights, etc
+  - og tags
+- finalize site copy
+  - homepage
+  - footer
 
 ### Misc
 

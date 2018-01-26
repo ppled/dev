@@ -5,8 +5,7 @@
 @import '../../components/section/section.styl'
 @import '../../components/social-share/social-share.styl'
 
-content-width = 530px
-breakpoint = content-width
+content-width = 600px
 
 .blog-post {
 
@@ -34,15 +33,19 @@ breakpoint = content-width
 
   .post-social {
     // 45px (right margin) + 35px (width of social) + 5px (padding) = 85px
-    social-breakpoint = (content-width + (85px * 2))
+    breakpoint = (content-width + (85px * 2))
 
-    +media('<' + social-breakpoint) {
+    +media('<' + breakpoint) {
+      &.social-condensed {
+        margin-bottom: 30px
+      }
+
       &.social-wide {
         display: none
       }
     }
 
-    +media('>=' + social-breakpoint) {
+    +media('>=' + breakpoint) {
       &.social-condensed {
         display: none
       }
@@ -59,8 +62,15 @@ breakpoint = content-width
   .post-hero {
     align-items: center
     display: flex
-    max-height: 400px
     overflow: hidden
+
+    +media('<' + breakpoints.mobile) {
+      max-height: 250px
+    }
+
+    +media('>=' + breakpoints.mobile) {
+      max-height: 400px
+    }
 
     .hero-img {
       width: 100%
@@ -87,5 +97,40 @@ breakpoint = content-width
     background-color: colors.neutral
     height: 8px
     margin: 30px 0
+  }
+
+  .post-nav {
+    breakpoint = 420px
+    gutter = 20px
+
+    +media('<' + breakpoint) {
+      .nav-item {
+        margin-top: 30px
+        width: 100%
+      }
+    }
+
+    +media('>=' + breakpoint) {
+      display: flex
+      justify-content: space-between
+
+      .nav-item {
+        width: percentage(((content-width - gutter) / 2) / content-width)
+
+        .item-label {
+          font-size: 10px
+          margin-bottom: 15px
+          text-transform: uppercase
+        }
+      }
+    }
+
+    .nav-item {
+      .item-label {
+        font-size: 10px
+        margin-bottom: 15px
+        text-transform: uppercase
+      }
+    }
   }
 }
