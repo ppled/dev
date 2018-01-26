@@ -42,7 +42,6 @@
 - forms
   - make component for enabling button when valid
   - focus animation on bottom-line inputs
-- add [polyfill](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) for Element.closest
 - decide if breadcrumbs should be added
   - depends on the category structure we move to
 - once mockups are done, hardcore browser test
