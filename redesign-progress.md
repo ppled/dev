@@ -14,9 +14,6 @@
 - header/footer
   - maybe fade in animation on header links underline
   - build full mobile drawer interactions
-  - shopping cart badge in mobile header
-    - support for badge
-    - sr-only text
 - product page
   - determine if pagination should be used in reviews
   - for quantity inputs, on blur, if value is empty, set to 1

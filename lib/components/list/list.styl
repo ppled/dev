@@ -67,24 +67,6 @@
       }
     }
 
-    &[badge] {
-      position: relative
-
-      &::after {
-        background-color: colors.yellow
-        border-radius: 6px
-        content: attr(badge)
-        font-size: 8px
-        font-weight: 700
-        padding: 2px 4px
-        pointer-events: none
-        position: absolute
-        right: 0
-        top: 0
-        transform: translate(50%, -40%)
-      }
-    }
-
     &:hover,
     &.list-item[active] {
       > a:after {
