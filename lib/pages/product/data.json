@@ -1,0 +1,92 @@
+{
+  "product": {
+    "title": "Double Row Integrated LED",
+    "price": "$46.00",
+    "rating": 5,
+    "options": [
+      {
+        "name": "Size",
+        "choices": ["4 foot", "2 foot"]
+      }
+    ],
+    "mediaGallery": {
+      "mainImage": {
+        "href": "//placehold.it/800x500",
+        "preview": "//placehold.it/400x275/efefef"
+      },
+      "thumbnails": [
+        {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/400x275/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/70x50/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/90x65/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/400x275/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/70x50/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/90x65/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/400x275/efefef"
+        }, {
+          "href": "//placehold.it/800x500",
+          "preview": "//placehold.it/70x50/efefef"
+        }, {
+          "href": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+          "preview": "https://img.youtube.com/vi/NpEaa2P7qZI/1.jpg"
+        }
+      ]
+    },
+    "techSpecs": [
+      "An alpaca fur poncho",
+      "Unicorn tears",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing",
+      "A legit jade bust of Elon Musk",
+      "Power cord",
+      "Maecenas sollicitudin nulla a dui suscipit",
+      "One extra lego block",
+      "Donec tristique eros a eros ullamcorper vel"
+    ],
+    "whatsInBox": [
+      "An alpaca fur poncho",
+      "Unicorn tears",
+      "Aenean semper nisi vel felis venenatis dignissim",
+      "Maecenas imperdiet erat egestas odio",
+      "A legit jade bust of Elon Musk",
+      "Audi stickers",
+      "Power cord",
+      "Unicorn tears",
+      "A legit jade bust of Elon Musk"
+    ],
+    "accessory": {
+      "href": "/pages/product/",
+      "image": "//placehold.it/650x390",
+      "price": "$1.70",
+      "title": "110 plugin cord"
+    },
+    "reviews": [
+      {
+        "author": "Travis B.",
+        "body": "Great experience will buy again",
+        "date": "Apr 11, 2017"
+      }, {
+        "author": "Monte W.",
+        "body": "The white light is what I wanted. Easy to install, once I could plug them in to existing plugs, could not hard wired. I can see work area better. Yes, I will buy more later for the second work area. Not real sure that the clips will keep the lights in place. Installed May 9, 2017.",
+        "date": "May 15, 2017",
+        "rating": 4
+      }, {
+        "author": "Terrance H.",
+        "body": "Easy to install",
+        "date": "Mar 28, 2017"
+      }
+    ]
+  }
+}
