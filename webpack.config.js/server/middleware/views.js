@@ -1,12 +1,22 @@
 const ejs = require('ejs')
 const prettyHtml = require('pretty')
-const { extname, join } = require('path')
+const { dirname, extname, join } = require('path')
 const { promisify } = require('util')
 const { fileExists, stripTrailingSlash } = require('../../utils.js')
 
 async function render (path, options) {
   const renderFile = promisify(ejs.renderFile.bind(ejs))
-  return renderFile(path, {}, options)
+  let data = {}
+
+  try {
+    const dataPath = join(dirname(path), 'data.json')
+
+    // clear cache to always get fresh data
+    delete require.cache[require.resolve(dataPath)]
+    data = require(dataPath)
+  } catch (e) {}
+
+  return renderFile(path, data, options)
 }
 
 async function getEntry (path) {
