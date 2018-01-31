@@ -9,7 +9,7 @@ async function render (path, options) {
   let data = {}
 
   try {
-    const dataPath = join(dirname(path), 'data.json')
+    const dataPath = join(dirname(path), '_data.json')
 
     // clear cache to always get fresh data
     delete require.cache[require.resolve(dataPath)]
