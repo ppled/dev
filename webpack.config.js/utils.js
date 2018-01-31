@@ -45,7 +45,7 @@ function escapeHtml (string) {
     '=': '&#x3D;'
   }
 
-  return String(string).replace(/[&<>"'`=\/]/g, match => {
+  return String(string).replace(/[&<>"'`=/]/g, match => {
     return entityMap[match]
   })
 }
