@@ -26,7 +26,6 @@
   - live filter posts when searched
 - blog post
   - put together generic body-text style (headings, paragraphs, etc) including colors, margins, weights, etc
-  - og tags
 - finalize site copy
   - homepage
   - footer
@@ -36,6 +35,7 @@
 - support/compatibility
   - accessibility ([a11y](http://a11yproject.com/checklist.html), [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/#accessibility))
   - nojs handling
+  - og tags
 - forms
   - make component for enabling button when valid
   - focus animation on bottom-line inputs
