@@ -33,8 +33,26 @@ function stripTrailingSlash (path) {
   return path
 }
 
+function escapeHtml (string) {
+  const entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;'
+  }
+
+  return String(string).replace(/[&<>"'`=\/]/g, match => {
+    return entityMap[match]
+  })
+}
+
 module.exports = {
   buildQuery,
+  escapeHtml,
   fileExists,
   pluralize,
   stripTrailingSlash

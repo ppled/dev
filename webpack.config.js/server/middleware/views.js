@@ -2,7 +2,7 @@ const ejs = require('ejs')
 const prettyHtml = require('pretty')
 const { dirname, extname, join } = require('path')
 const { promisify } = require('util')
-const { fileExists, stripTrailingSlash } = require('../../utils.js')
+const { escapeHtml, fileExists, stripTrailingSlash } = require('../../utils.js')
 
 async function render (path, options) {
   const renderFile = promisify(ejs.renderFile.bind(ejs))
@@ -58,7 +58,9 @@ module.exports = function handleViews (PUBLIC_PATH, options = {}) {
 
                 response.send(body)
               })
-              .catch(error => response.send(`ejs error:\n${error.stack}`))
+              .catch(error => {
+                response.send(`<pre>${escapeHtml(error.stack)}</pre>`)
+              })
           } else {
             next()
           }
