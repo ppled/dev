@@ -3,22 +3,30 @@
 @import '../button/button.styl'
 @import '../form/form.styl'
 
+wide-device() {
+  +media('>=' + breakpoints.mobile) {
+    {block}
+  }
+}
+
+condensed-device() {
+  +media('<' + breakpoints.mobile) {
+    {block}
+  }
+}
+
 .page-heading {
   border-bottom: 1px solid colors.neutral
-
-  +media('>=' + breakpoints.mobile) {
-    padding-bottom: 15px
-  }
-
-  +media('<' + breakpoints.mobile) {
-    padding-bottom: 10px
-  }
 
   h1 {
     color: colors.neutral
     font-size: 31px
 
-    +media('<' + breakpoints.mobile) {
+    +wide-device() {
+      margin-bottom: 15px
+    }
+
+    +condensed-device() {
       width: 100%
     }
   }
@@ -29,27 +37,39 @@
   display: flex
   justify-content: space-between
 
-  +media('<' + breakpoints.mobile) {
+  +condensed-device() {
     flex-direction: column
-
-    h1 {
-      margin-bottom: 15px
-    }
   }
 
   .heading-search {
     display: flex
 
-    +media('>=' + breakpoints.mobile) {
+    +wide-device() {
       width: 340px
     }
 
-    +media('<' + breakpoints.mobile) {
+    +condensed-device() {
       width: 100%
     }
 
     .search-input {
-      margin-right: 5px
+      +wide-device() {
+        vert-padding = 15px
+        padding-top: vert-padding
+        padding-bottom: vert-padding
+      }
+
+      +condensed-device() {
+        vert-padding = 10px
+        padding-top: vert-padding
+        padding-bottom: vert-padding
+      }
+    }
+
+    .search-btn {
+      horiz-padding = 5px
+      padding-left: horiz-padding
+      padding-right: horiz-padding
     }
   }
 }
