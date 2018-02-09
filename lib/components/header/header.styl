@@ -4,13 +4,13 @@
 @import '../nav-toggle/nav-toggle.styl'
 
 wide-device() {
-  +media('>=' + breakpoints.header) {
+  +media('>=' + BREAKPOINTS.header) {
     {block}
   }
 }
 
 condensed-device() {
-  +media('<' + breakpoints.header) {
+  +media('<' + BREAKPOINTS.header) {
     {block}
   }
 }
@@ -47,7 +47,7 @@ condensed-device() {
       position: relative
 
       &:after {
-        background-color: colors.yellow
+        background-color: COLORS.yellow
         border-radius: 6px
         content: attr(badge)
         font-size: 8px
@@ -71,7 +71,7 @@ condensed-device() {
     position: fixed
     top: 0
     width: 100%
-    z-index: z-indexes.header
+    z-index: Z_INDEXES.header
 
     +wide-device() {
       padding-bottom: 20px
@@ -161,16 +161,16 @@ condensed-device() {
 
   /* header flyout */
   .header-flyout {
-    background-color: colors.neutral
+    background-color: COLORS.neutral
     height: s('calc(100% - %s)', HEADER_HEIGHT_CONDENSED)
     overflow: auto
     position: fixed
     right: 100%
     top: HEADER_HEIGHT_CONDENSED
     transform: translateX(0)
-    transition: transform speeds.default
+    transition: transform SPEEDS.default
     width: 100%
-    z-index: z-indexes.header
+    z-index: Z_INDEXES.header
 
     .header-nav_main.list .list-item {
       font-size: 16px

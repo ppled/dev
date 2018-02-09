@@ -4,22 +4,22 @@
 @import '../form/form.styl'
 
 wide-device() {
-  +media('>=' + breakpoints.mobile) {
+  +media('>=' + BREAKPOINTS.mobile) {
     {block}
   }
 }
 
 condensed-device() {
-  +media('<' + breakpoints.mobile) {
+  +media('<' + BREAKPOINTS.mobile) {
     {block}
   }
 }
 
 .page-heading {
-  border-bottom: 1px solid colors.neutral
+  border-bottom: 1px solid COLORS.neutral
 
   h1 {
-    color: colors.neutral
+    color: COLORS.neutral
     font-size: 31px
 
     +wide-device() {

@@ -18,14 +18,14 @@ $nav-toggle {
   bar-width = (size - (horiz-offset * 2))
 
   [class^="bar_"] {
-    background-color: colors.neutral
+    background-color: COLORS.neutral
     display: block
     height: percentage(bar-height / size)
     left: percentage(horiz-offset / size)
     position: absolute
     top: percentage(vert-offset / size)
     transform-origin: center
-    transition-duration: speeds.default
+    transition-duration: SPEEDS.default
     transition-property: transform
     width: percentage(bar-width / size)
 

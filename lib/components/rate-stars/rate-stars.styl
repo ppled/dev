@@ -25,7 +25,7 @@ componentWidth(gutter) {
   width: componentWidth(star-gutter)
 
   .rate-star {
-    color: colors.yellow
+    color: COLORS.yellow
 
     .star-icon {
       @extend $star_empty
@@ -66,9 +66,9 @@ componentWidth(gutter) {
 .rate-stars[editable] {
   .rate-label {
     position: relative
-    transition: transform speeds.default
+    transition: transform SPEEDS.default
 
-    +media('>=' + breakpoints.mobile) {
+    +media('>=' + BREAKPOINTS.mobile) {
       &:hover {
         transform: scale(1.2)
       }

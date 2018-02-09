@@ -12,11 +12,11 @@ body.outlines-disabled {
 
 // accounting for fixed-positioned header
 main {
-  +media('>=' + breakpoints.header) {
+  +media('>=' + BREAKPOINTS.header) {
     margin-top: HEADER_HEIGHT_WIDE
   }
 
-  +media('<' + breakpoints.header) {
+  +media('<' + BREAKPOINTS.header) {
     margin-top: HEADER_HEIGHT_CONDENSED
   }
 }
@@ -54,13 +54,13 @@ main {
 }
 
 .color_facebook {
-  color: colors.facebook
+  color: COLORS.facebook
 }
 
 .color_pinterest {
-  color: colors.pinterest
+  color: COLORS.pinterest
 }
 
 .color_twitter {
-  color: colors.twitter
+  color: COLORS.twitter
 }

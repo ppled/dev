@@ -19,7 +19,7 @@ content-width = 600px
     padding-top: @padding-bottom
 
     .heading-title {
-      color: colors.neutral
+      color: COLORS.neutral
       font-size: 31px
       font-weight: 700
     }
@@ -64,11 +64,11 @@ content-width = 600px
     display: flex
     overflow: hidden
 
-    +media('<' + breakpoints.mobile) {
+    +media('<' + BREAKPOINTS.mobile) {
       max-height: 250px
     }
 
-    +media('>=' + breakpoints.mobile) {
+    +media('>=' + BREAKPOINTS.mobile) {
       max-height: 400px
     }
 
@@ -82,7 +82,7 @@ content-width = 600px
     word-break: break-word
 
     h2 {
-      color: colors.neutral
+      color: COLORS.neutral
       font-size: 25px
       font-weight: 300
       margin-bottom: 1em
@@ -94,7 +94,7 @@ content-width = 600px
   }
 
   .post-hr {
-    background-color: colors.neutral
+    background-color: COLORS.neutral
     height: 8px
     margin: 30px 0
   }

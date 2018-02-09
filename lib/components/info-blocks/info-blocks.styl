@@ -20,7 +20,7 @@
     }
   }
 
-  +media('>=' + breakpoints.mobile) {
+  +media('>=' + BREAKPOINTS.mobile) {
     .info-block {
       width: 50%
 
@@ -31,7 +31,7 @@
     }
   }
 
-  +media('<' + breakpoints.mobile) {
+  +media('<' + BREAKPOINTS.mobile) {
     flex-direction: column
 
     .info-block {
@@ -47,7 +47,7 @@
 }
 
 .info-blocks[spec-list] {
-  +media('<' + breakpoints.mobile) {
+  +media('<' + BREAKPOINTS.mobile) {
     .block-contain {
       width: 100%
 
