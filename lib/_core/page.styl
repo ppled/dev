@@ -13,11 +13,11 @@ body.outlines-disabled {
 // accounting for fixed-positioned header
 main {
   +media('>=' + breakpoints.header) {
-    margin-top: 70px
+    margin-top: HEADER_HEIGHT_WIDE
   }
 
   +media('<' + breakpoints.header) {
-    margin-top: 53px
+    margin-top: HEADER_HEIGHT_CONDENSED
   }
 }
 

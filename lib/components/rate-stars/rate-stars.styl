@@ -68,8 +68,10 @@ componentWidth(gutter) {
     position: relative
     transition: transform speeds.default
 
-    &:hover {
-      transform: scale(1.2)
+    +media('>=' + breakpoints.mobile) {
+      &:hover {
+        transform: scale(1.2)
+      }
     }
 
     .label-radio {

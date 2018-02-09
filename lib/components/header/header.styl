@@ -84,7 +84,7 @@ condensed-device() {
     }
 
     +condensed-device() {
-      padding-bottom: 10px
+      padding-bottom: 15px
       padding-top: @padding-bottom
 
       // wide header on condensed devices
@@ -134,7 +134,7 @@ condensed-device() {
   /* condensed header */
   .header-body[condensed] {
     icon-size = 30px
-    height: 53px
+    height: HEADER_HEIGHT_CONDENSED
 
     .header-nav-toggle {
       height: icon-size
@@ -161,16 +161,23 @@ condensed-device() {
 
   /* header flyout */
   .header-flyout {
-    header-height = 53px
     background-color: colors.neutral
-    height: s('calc(100% - %s)', header-height)
+    height: s('calc(100% - %s)', HEADER_HEIGHT_CONDENSED)
     overflow: auto
     position: fixed
     right: 100%
-    top: header-height
+    top: HEADER_HEIGHT_CONDENSED
     transform: translateX(0)
     transition: transform speeds.default
     width: 100%
     z-index: z-indexes.header
+
+    .header-nav_main.list .list-item {
+      font-size: 16px
+
+      > a {
+        padding: 20px
+      }
+    }
   }
 }
