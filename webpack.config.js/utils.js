@@ -1,5 +1,4 @@
-const fs = require('fs')
-const { promisify } = require('util')
+const fs = require('pfs')
 
 function buildQuery (props = {}) {
   return Object.keys(props)
@@ -11,7 +10,7 @@ async function fileExists (path) {
   let result = true
 
   try {
-    await promisify(fs.access)(path)
+    await fs.access(path)
   } catch (error) {
     if (error) {
       result = false

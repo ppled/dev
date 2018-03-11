@@ -1,15 +1,14 @@
 const env = require('./env.js')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const glob = require('glob')
+const globby = require('globby')
 const path = require('path')
 const setupServer = require('./server/index.js')
-const { promisify } = require('util')
 
 const PUBLIC_PATH = path.join(__dirname, '../lib')
 const { PORT } = env.get()
 
 async function getEntries () {
-  const filepaths = await promisify(glob)(
+  const filepaths = await globby(
     '+(components|pages)/*/*.js',
     { cwd: PUBLIC_PATH }
   )
